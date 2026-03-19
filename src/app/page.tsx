@@ -2,7 +2,6 @@ import Links from '@/components/links'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
@@ -28,13 +27,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card'
 import Marquee from '@/components/ui/marquee'
 import { Progress } from '@/components/ui/progress'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import PAST_ROLES from '@/data/experience'
 import PROJECTS from '@/data/projects'
-import { ArrowRight, BriefcaseBusiness, MapPin, ShieldCheck, Sparkles } from 'lucide-react'
+import { ArrowRight, BriefcaseBusiness, ShieldCheck, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
 const operatingPrinciples = [
@@ -86,37 +84,41 @@ const strengths = [
 
 export default function Home() {
   return (
-    <div className="space-y-12 font-base sm:space-y-14">
-      <section className="grid gap-8 xl:grid-cols-[1.35fr_0.85fr]">
+    <div className="space-y-14 font-base sm:space-y-16">
+
+      {/* ── Hero ── */}
+      <section className="grid gap-6 xl:grid-cols-[1.4fr_0.8fr]">
         <Card className="bg-main text-main-foreground">
-          <CardHeader className="border-b border-border">
+          <CardHeader className="border-b border-border pb-6">
             <div className="flex flex-wrap gap-2">
               <Badge>Visionary systems builder</Badge>
               <Badge variant="neutral">Mission-led execution</Badge>
               <Badge variant="neutral">AI and cloud product architecture</Badge>
             </div>
-            <CardTitle className="text-3xl sm:text-5xl">Sayyed Shozib Abbas</CardTitle>
-            <CardDescription className="max-w-3xl text-base text-main-foreground sm:text-lg">
-              I build products that make complexity useful. My work sits at the intersection of
-              systems thinking, product intent, and disciplined execution across AI, cloud,
-              web, mobile, and desktop platforms.
-            </CardDescription>
+            <div className="space-y-3 pt-1">
+              <CardTitle className="text-4xl leading-tight sm:text-5xl lg:text-6xl">
+                Sayyed Shozib Abbas
+              </CardTitle>
+              <CardDescription className="max-w-2xl text-base text-main-foreground sm:text-lg">
+                I build products that make complexity useful. My work sits at the intersection of
+                systems thinking, product intent, and disciplined execution across AI, cloud,
+                web, mobile, and desktop platforms.
+              </CardDescription>
+            </div>
           </CardHeader>
 
-          <CardContent className="pt-8">
-            <div className="space-y-4 text-base sm:text-lg">
-              <p>
-                The mission is simple: design software systems that are trusted by teams,
-                valuable to users, and resilient under real-world constraints.
-              </p>
-              <p>
-                Recent work includes AI-powered due diligence, intelligent education tools,
-                healthcare workflow software, and distributed systems infrastructure.
-              </p>
-            </div>
+          <CardContent className="space-y-4 pt-6 text-base sm:text-lg">
+            <p>
+              The mission is simple: design software systems that are trusted by teams,
+              valuable to users, and resilient under real-world constraints.
+            </p>
+            <p>
+              Recent work includes AI-powered due diligence, intelligent education tools,
+              healthcare workflow software, and distributed systems infrastructure.
+            </p>
           </CardContent>
 
-          <CardFooter className="flex flex-wrap gap-3 border-t border-border pt-8">
+          <CardFooter className="flex flex-wrap gap-3 border-t border-border pt-6">
             <Button asChild>
               <Link href="/work">
                 Explore selected work
@@ -153,198 +155,180 @@ export default function Home() {
           </CardFooter>
         </Card>
 
-        <div className="space-y-8">
+        {/* Right sidebar */}
+        <div className="flex flex-col gap-5">
           <Links />
 
-          <div className="space-y-5">
-            <Alert>
-                <ShieldCheck />
-                <AlertTitle>Current mission</AlertTitle>
-                <AlertDescription>
-                  Build software organizations that can turn difficult ideas into dependable,
-                  high-velocity product outcomes.
-                </AlertDescription>
-              </Alert>
-              <div className="border-border rounded-base bg-secondary-background text-foreground space-y-4 border-2 p-4">
-                <div className="flex items-center gap-3">
-                  <Avatar className="size-14 bg-background">
-                    <AvatarFallback className="bg-background text-foreground font-heading">
-                      SSA
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="font-heading text-lg">Systems visionary and builder</p>
-                    <p className="text-sm">Architecture, product systems, and practical execution</p>
-                  </div>
-                </div>
 
-                <HoverCard>
-                  <HoverCardTrigger className="border-border rounded-base inline-flex items-center gap-2 border-2 px-3 py-2 text-left font-heading">
-                    <MapPin className="h-4 w-4" /> DHA Phase II, Islamabad
-                  </HoverCardTrigger>
-                  <HoverCardContent>
-                    Based in Islamabad and collaborating across distributed product teams,
-                    strategic initiatives, and high-context technical programs.
-                  </HoverCardContent>
-                </HoverCard>
-              </div>
-            </div>
+          <Alert>
+            <ShieldCheck />
+            <AlertTitle>Current mission</AlertTitle>
+            <AlertDescription>
+              Build software organizations that can turn difficult ideas into dependable,
+              high-velocity product outcomes.
+            </AlertDescription>
+          </Alert>
+
         </div>
       </section>
 
+      {/* ── Focus track marquee ── */}
       <Marquee items={focusTrack} />
 
-      <section className="grid gap-8 lg:grid-cols-3">
-        {strengths.map((item) => {
-          return (
+      {/* ── Signal strengths ── */}
+      <section className="space-y-6">
+        <div className="space-y-1.5">
+          <h2 className="text-2xl font-heading sm:text-3xl">Signal strengths</h2>
+          <p className="max-w-2xl text-sm text-foreground/70 sm:text-base">
+            Three axes where craft and experience create the most leverage for teams and products.
+          </p>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-3">
+          {strengths.map((item) => (
             <Card className="bg-secondary-background" key={item.title}>
-              <CardHeader>
-                <CardTitle className="text-xl">{item.title}</CardTitle>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">{item.title}</CardTitle>
                 <CardDescription>{item.description}</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="font-heading">Signal</span>
+              <CardContent className="space-y-2 pt-0">
+                <div className="flex items-center justify-between text-xs font-heading uppercase tracking-wide">
+                  <span>Signal</span>
                   <span>{item.score}%</span>
                 </div>
                 <Progress value={item.score} />
               </CardContent>
             </Card>
-          )
-        })}
+          ))}
+        </div>
       </section>
 
-      <section className="grid gap-8 xl:grid-cols-[1fr_1.05fr]">
+      {/* ── Leverage model + Operating principles ── */}
+      <section className="grid gap-6 xl:grid-cols-[1fr_1.05fr]">
         <Card className="bg-secondary-background">
-          <CardHeader>
-            <CardTitle className="text-2xl">How I create leverage</CardTitle>
+          <CardHeader className="pb-4">
+            <CardTitle className="text-xl">How I create leverage</CardTitle>
             <CardDescription>
               The highest impact appears when mission, architecture, and execution work as one system.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs className="w-full" defaultValue="vision">
-              <TabsList className="grid h-auto w-full grid-cols-3 gap-2">
+              <TabsList className="grid h-auto w-full grid-cols-3 gap-1.5">
                 <TabsTrigger value="vision">Vision</TabsTrigger>
                 <TabsTrigger value="architecture">Architecture</TabsTrigger>
                 <TabsTrigger value="execution">Execution</TabsTrigger>
               </TabsList>
-              <TabsContent className="pt-1" value="vision">
-                <Card className="bg-background py-4 shadow-none">
-                  <CardContent className="space-y-3 pt-4 text-sm sm:text-base">
-                    <p>
-                      I translate ambitious product goals into focused technical direction so teams
-                      understand what matters now and what compounds later.
-                    </p>
-                    <p>
-                      This keeps product strategy connected to engineering reality at every step.
-                    </p>
-                  </CardContent>
-                </Card>
+              <TabsContent value="vision">
+                <div className="space-y-3 pt-5 text-sm sm:text-base">
+                  <p>
+                    I translate ambitious product goals into focused technical direction so teams
+                    understand what matters now and what compounds later.
+                  </p>
+                  <p>
+                    This keeps product strategy connected to engineering reality at every step.
+                  </p>
+                </div>
               </TabsContent>
-              <TabsContent className="pt-1" value="architecture">
-                <Card className="bg-background py-4 shadow-none">
-                  <CardContent className="space-y-3 pt-4 text-sm sm:text-base">
-                    <p>
-                      I design modular systems that can adapt to evolving scope while preserving
-                      reliability, maintainability, and developer clarity.
-                    </p>
-                    <p>
-                      Architecture should reduce friction for the next feature, not create it.
-                    </p>
-                  </CardContent>
-                </Card>
+              <TabsContent value="architecture">
+                <div className="space-y-3 pt-5 text-sm sm:text-base">
+                  <p>
+                    I design modular systems that can adapt to evolving scope while preserving
+                    reliability, maintainability, and developer clarity.
+                  </p>
+                  <p>
+                    Architecture should reduce friction for the next feature, not create it.
+                  </p>
+                </div>
               </TabsContent>
-              <TabsContent className="pt-1" value="execution">
-                <Card className="bg-background py-4 shadow-none">
-                  <CardContent className="space-y-3 pt-4 text-sm sm:text-base">
-                    <p>
-                      I shape delivery loops: CI/CD, review standards, observability, and planning
-                      cadences that make high quality repeatable.
-                    </p>
-                    <p>
-                      Reliable speed is a systems outcome, not an individual effort.
-                    </p>
-                  </CardContent>
-                </Card>
+              <TabsContent value="execution">
+                <div className="space-y-3 pt-5 text-sm sm:text-base">
+                  <p>
+                    I shape delivery loops: CI/CD, review standards, observability, and planning
+                    cadences that make high quality repeatable.
+                  </p>
+                  <p>
+                    Reliable speed is a systems outcome, not an individual effort.
+                  </p>
+                </div>
               </TabsContent>
             </Tabs>
           </CardContent>
         </Card>
 
         <div className="space-y-5">
-          <h2 className="text-2xl font-heading sm:text-3xl">Operating principles</h2>
-          <Accordion className="space-y-4" collapsible type="single">
-            {operatingPrinciples.map((principle) => {
-              return (
-                <AccordionItem key={principle.title} value={principle.title}>
-                  <AccordionTrigger>{principle.title}</AccordionTrigger>
-                  <AccordionContent className="text-sm sm:text-base">
-                    {principle.description}
-                  </AccordionContent>
-                </AccordionItem>
-              )
-            })}
+          <div className="space-y-1.5">
+            <h2 className="text-2xl font-heading sm:text-3xl">Operating principles</h2>
+            <p className="text-sm text-foreground/70">
+              The convictions that guide every product decision and technical call I make.
+            </p>
+          </div>
+          <Accordion className="space-y-3" collapsible type="single">
+            {operatingPrinciples.map((principle) => (
+              <AccordionItem key={principle.title} value={principle.title}>
+                <AccordionTrigger>{principle.title}</AccordionTrigger>
+                <AccordionContent className="text-sm sm:text-base">
+                  {principle.description}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
       </section>
 
+      {/* ── Career journey ── */}
       <section className="space-y-6">
-        <div className="flex flex-col gap-3">
+        <div className="space-y-1.5">
           <h2 className="text-2xl font-heading sm:text-3xl">Journey in systems craft</h2>
-          <p className="max-w-3xl text-sm sm:text-base">
+          <p className="max-w-3xl text-sm text-foreground/70 sm:text-base">
             From distributed systems engineering to product-system architecture,
             each chapter expanded scope while staying grounded in execution.
           </p>
         </div>
 
-        <Accordion className="space-y-4" collapsible type="single">
-          {PAST_ROLES.map((role) => {
-            return (
-              <AccordionItem key={`${role.company}-${role.role}`} value={`${role.company}-${role.role}`}>
-                <AccordionTrigger>
-                  <div className="text-left">
-                    <div className="text-lg font-heading sm:text-xl">
-                      {role.role} · {role.company}
-                    </div>
-                    <div className="mt-1 text-sm">{role.startDate} - {role.endDate}</div>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="space-y-4 text-sm sm:text-base">
-                    <p>{role.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {role.highlights.slice(0, 3).map((highlight) => {
-                        return (
-                          <HoverCard key={highlight}>
-                            <HoverCardTrigger asChild>
-                              <span className="rounded-base border-2 border-border bg-background px-3 py-1 text-xs font-heading sm:text-sm">
-                                {highlight.split(' ')[0]}...
-                              </span>
-                            </HoverCardTrigger>
-                            <HoverCardContent className="text-sm">{highlight}</HoverCardContent>
-                          </HoverCard>
-                        )
-                      })}
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            )
-          })}
+        <Accordion className="space-y-3" collapsible type="single">
+          {PAST_ROLES.map((role) => (
+            <AccordionItem
+              key={`${role.company}-${role.role}`}
+              value={`${role.company}-${role.role}`}
+            >
+              <AccordionTrigger>
+                <div className="flex flex-col gap-0.5 text-left">
+                  <span className="font-heading text-base sm:text-lg">{role.role}</span>
+                  <span className="text-sm text-foreground/60">
+                    {role.company} · {role.startDate} – {role.endDate}
+                  </span>
+                </div>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="space-y-4 pt-1 text-sm sm:text-base">
+                  <p>{role.description}</p>
+                  <ul className="space-y-2">
+                    {role.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-2.5">
+                        <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-main" />
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
         </Accordion>
       </section>
 
+      {/* ── Programs and platforms ── */}
       <section className="space-y-6">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="space-y-1.5">
             <h2 className="text-2xl font-heading sm:text-3xl">Programs and platforms</h2>
-            <p className="max-w-2xl text-sm sm:text-base">
+            <p className="max-w-2xl text-sm text-foreground/70 sm:text-base">
               A sample of systems I have shaped across AI, education, healthcare,
               and distributed infrastructure.
             </p>
           </div>
-          <Button asChild variant="neutral">
+          <Button asChild className="shrink-0" variant="neutral">
             <Link href="/work">
               Full work story
               <BriefcaseBusiness />
@@ -355,39 +339,37 @@ export default function Home() {
         <div className="px-12">
           <Carousel opts={{ align: 'start', loop: true }}>
             <CarouselContent>
-              {PROJECTS.map((project) => {
-                return (
-                  <CarouselItem className="md:basis-1/2 xl:basis-1/3" key={project.name}>
-                    <Card className="h-full bg-secondary-background">
-                      <CardContent className="space-y-4 pt-6">
-                        <AspectRatio ratio={4 / 3}>
-                          <img
-                            alt={project.name}
-                            className="border-border h-full w-full rounded-base border-2 object-cover"
-                            src={project.previewImage}
-                          />
-                        </AspectRatio>
-                        <div className="space-y-3">
-                          <div>
-                            <p className="text-sm">{project.organization}</p>
-                            <h3 className="text-xl font-heading">{project.name}</h3>
-                          </div>
-                          <p className="text-sm sm:text-base">{project.description}</p>
-                          <div className="flex flex-wrap gap-2">
-                            {project.focusAreas.slice(0, 3).map((area) => {
-                              return (
-                                <Badge key={area} variant="neutral">
-                                  {area}
-                                </Badge>
-                              )
-                            })}
-                          </div>
+              {PROJECTS.map((project) => (
+                <CarouselItem className="md:basis-1/2 xl:basis-1/3" key={project.name}>
+                  <Card className="h-full bg-secondary-background">
+                    <CardContent className="space-y-4 pt-6">
+                      <AspectRatio ratio={4 / 3}>
+                        <img
+                          alt={project.name}
+                          className="h-full w-full rounded-base border-2 border-border object-cover"
+                          src={project.previewImage}
+                        />
+                      </AspectRatio>
+                      <div className="space-y-2">
+                        <div>
+                          <p className="text-xs font-heading uppercase tracking-wide text-foreground/60">
+                            {project.organization} · {project.timeframe}
+                          </p>
+                          <h3 className="mt-0.5 text-lg font-heading">{project.name}</h3>
                         </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                )
-              })}
+                        <p className="text-sm sm:text-base">{project.description}</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.focusAreas.slice(0, 3).map((area) => (
+                            <Badge className="text-xs" key={area} variant="neutral">
+                              {area}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
             </CarouselContent>
             <CarouselPrevious />
             <CarouselNext />
@@ -395,6 +377,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── North star ── */}
       <section>
         <Alert className="bg-main text-main-foreground">
           <Sparkles />
