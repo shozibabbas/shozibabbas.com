@@ -42,7 +42,7 @@ const capabilityProof = [
 
 export default function About() {
   return (
-    <div className="space-y-10 font-base">
+    <div className="space-y-12 font-base sm:space-y-14">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -70,7 +70,7 @@ export default function About() {
             can trust, scale, and build on confidently?
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-6 pt-6">
+        <CardContent className="space-y-8 pt-8">
           <div className="space-y-4 text-base sm:text-lg">
             <p>
               My path started in distributed systems engineering and evolved into end-to-end
@@ -122,8 +122,8 @@ export default function About() {
         </CardContent>
       </Card>
 
-      <section className="space-y-5">
-        <div>
+      <section className="space-y-6">
+        <div className="space-y-2">
           <h2 className="text-2xl font-heading sm:text-3xl">Capability mapped to proof</h2>
           <p className="mt-2 text-sm sm:text-base">
             Evidence from real builds, not abstract claims.
@@ -152,15 +152,15 @@ export default function About() {
         </Table>
       </section>
 
-      <section className="space-y-5">
-        <div>
+      <section className="space-y-6">
+        <div className="space-y-2">
           <h2 className="text-2xl font-heading sm:text-3xl">Build chapters</h2>
           <p className="mt-2 text-sm sm:text-base">
             Progression from deep implementation to system-level product orchestration.
           </p>
         </div>
 
-        <div className="grid gap-6">
+        <div className="grid gap-8">
           {PAST_ROLES.map((role) => {
             return (
               <Card className="bg-secondary-background" key={`${role.company}-${role.role}`}>
@@ -191,15 +191,15 @@ export default function About() {
         </div>
       </section>
 
-      <section className="space-y-5">
-        <div>
+      <section className="space-y-6">
+        <div className="space-y-2">
           <h2 className="text-2xl font-heading sm:text-3xl">Technology fluency</h2>
           <p className="mt-2 text-sm sm:text-base">
             Tools are instruments. The goal is always better systems and better outcomes.
           </p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-3">
           {SKILLS.map((group) => {
             return (
               <Card className="bg-secondary-background" key={group.field}>
@@ -224,8 +224,8 @@ export default function About() {
         </div>
       </section>
 
-      <section className="space-y-5">
-        <div>
+      <section className="space-y-6">
+        <div className="space-y-2">
           <h2 className="text-2xl font-heading sm:text-3xl">Academic foundation</h2>
           <p className="mt-2 text-sm sm:text-base">
             Formal training that shaped my systems and software engineering fundamentals.

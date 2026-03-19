@@ -57,7 +57,7 @@ const outcomeSignals = [
 
 export default function Work() {
   return (
-    <div className="space-y-10 font-base">
+    <div className="space-y-12 font-base sm:space-y-14">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -96,8 +96,8 @@ export default function Work() {
         </CardFooter>
       </Card>
 
-      <section className="space-y-5">
-        <div>
+      <section className="space-y-6">
+        <div className="space-y-2">
           <h2 className="text-2xl font-heading sm:text-3xl">Case study preview</h2>
           <p className="text-sm sm:text-base">
             A quick scan of key programs before diving into challenge,
@@ -105,24 +105,24 @@ export default function Work() {
           </p>
         </div>
 
-        <div className="px-12">
+        <div className="px-12 py-1">
           <Carousel opts={{ align: 'start', loop: true }}>
             <CarouselContent>
               {PROJECTS.map((project) => {
                 return (
                   <CarouselItem className="md:basis-1/2 xl:basis-1/3" key={project.name}>
                     <figure
-                          className={cn(
-                            "w-full overflow-hidden rounded-base border-2 border-border bg-main font-base shadow-shadow",
-                          )}
-                        >
+                      className={cn(
+                        'w-full overflow-hidden rounded-base border-2 border-border bg-main font-base shadow-shadow',
+                      )}
+                    >
                       <AspectRatio ratio={4 / 3}>
-                      <img
-                        alt={project.name}
-                        className="h-full w-full object-cover"
-                        src={project.previewImage}
-                      />
-                    </AspectRatio>
+                        <img
+                          alt={project.name}
+                          className="h-full w-full object-cover"
+                          src={project.previewImage}
+                        />
+                      </AspectRatio>
                       <figcaption className="border-t-2 text-main-foreground border-border p-4">
                         {project.name} · {project.organization}
                       </figcaption>
@@ -137,8 +137,8 @@ export default function Work() {
         </div>
       </section>
 
-      <section className="space-y-5">
-        <div>
+      <section className="space-y-6">
+        <div className="space-y-2">
           <h2 className="text-2xl font-heading sm:text-3xl">What these projects prove</h2>
           <p className="text-sm sm:text-base">
             Not just shipped features, but repeatable engineering leverage.
@@ -165,13 +165,13 @@ export default function Work() {
         </Table>
       </section>
 
-      <Tabs defaultValue="featured">
+      <Tabs className="space-y-2" defaultValue="featured">
         <TabsList className="grid h-auto w-full grid-cols-3 gap-2">
           <TabsTrigger value="featured">Narrative</TabsTrigger>
           <TabsTrigger value="platforms">Execution style</TabsTrigger>
           <TabsTrigger value="systems">Impact lens</TabsTrigger>
         </TabsList>
-        <TabsContent value="featured">
+        <TabsContent className="pt-1" value="featured">
           <Card className="bg-secondary-background py-4">
             <CardContent className="pt-4 text-sm sm:text-base">
               Every project here follows the same pattern: define the business
@@ -180,7 +180,7 @@ export default function Work() {
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent value="platforms">
+        <TabsContent className="pt-1" value="platforms">
           <Card className="bg-secondary-background py-4">
             <CardContent className="pt-4 text-sm sm:text-base">
               I combine architecture design with hands-on execution and team
@@ -188,7 +188,7 @@ export default function Work() {
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent value="systems">
+        <TabsContent className="pt-1" value="systems">
           <Card className="bg-secondary-background py-4">
             <CardContent className="pt-4 text-sm sm:text-base">
               The measure of success is durable velocity: reliable releases,
@@ -198,7 +198,7 @@ export default function Work() {
         </TabsContent>
       </Tabs>
 
-      <div className="grid gap-6">
+      <div className="grid gap-8">
         {PROJECTS.map((project) => {
           return (
             <Card className="bg-secondary-background" key={project.name}>

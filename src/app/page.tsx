@@ -86,8 +86,8 @@ const strengths = [
 
 export default function Home() {
   return (
-    <div className="space-y-10 font-base">
-      <section className="grid gap-6 xl:grid-cols-[1.35fr_0.85fr]">
+    <div className="space-y-12 font-base sm:space-y-14">
+      <section className="grid gap-8 xl:grid-cols-[1.35fr_0.85fr]">
         <Card className="bg-main text-main-foreground">
           <CardHeader className="border-b border-border">
             <div className="flex flex-wrap gap-2">
@@ -103,7 +103,7 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="pt-6">
+          <CardContent className="pt-8">
             <div className="space-y-4 text-base sm:text-lg">
               <p>
                 The mission is simple: design software systems that are trusted by teams,
@@ -116,7 +116,7 @@ export default function Home() {
             </div>
           </CardContent>
 
-          <CardFooter className="flex flex-wrap gap-3 border-t border-border">
+          <CardFooter className="flex flex-wrap gap-3 border-t border-border pt-8">
             <Button asChild>
               <Link href="/work">
                 Explore selected work
@@ -153,10 +153,10 @@ export default function Home() {
           </CardFooter>
         </Card>
 
-        <div className="space-y-6">
+        <div className="space-y-8">
           <Links />
 
-          <div className="space-y-4">
+          <div className="space-y-5">
             <Alert>
                 <ShieldCheck />
                 <AlertTitle>Current mission</AlertTitle>
@@ -194,7 +194,7 @@ export default function Home() {
 
       <Marquee items={focusTrack} />
 
-      <section className="grid gap-6 lg:grid-cols-3">
+      <section className="grid gap-8 lg:grid-cols-3">
         {strengths.map((item) => {
           return (
             <Card className="bg-secondary-background" key={item.title}>
@@ -214,7 +214,7 @@ export default function Home() {
         })}
       </section>
 
-      <section className="grid gap-6 xl:grid-cols-[1fr_1.05fr]">
+      <section className="grid gap-8 xl:grid-cols-[1fr_1.05fr]">
         <Card className="bg-secondary-background">
           <CardHeader>
             <CardTitle className="text-2xl">How I create leverage</CardTitle>
@@ -229,7 +229,7 @@ export default function Home() {
                 <TabsTrigger value="architecture">Architecture</TabsTrigger>
                 <TabsTrigger value="execution">Execution</TabsTrigger>
               </TabsList>
-              <TabsContent value="vision">
+              <TabsContent className="pt-1" value="vision">
                 <Card className="bg-background py-4 shadow-none">
                   <CardContent className="space-y-3 pt-4 text-sm sm:text-base">
                     <p>
@@ -242,7 +242,7 @@ export default function Home() {
                   </CardContent>
                 </Card>
               </TabsContent>
-              <TabsContent value="architecture">
+              <TabsContent className="pt-1" value="architecture">
                 <Card className="bg-background py-4 shadow-none">
                   <CardContent className="space-y-3 pt-4 text-sm sm:text-base">
                     <p>
@@ -255,7 +255,7 @@ export default function Home() {
                   </CardContent>
                 </Card>
               </TabsContent>
-              <TabsContent value="execution">
+              <TabsContent className="pt-1" value="execution">
                 <Card className="bg-background py-4 shadow-none">
                   <CardContent className="space-y-3 pt-4 text-sm sm:text-base">
                     <p>
@@ -272,7 +272,7 @@ export default function Home() {
           </CardContent>
         </Card>
 
-        <div className="space-y-4">
+        <div className="space-y-5">
           <h2 className="text-2xl font-heading sm:text-3xl">Operating principles</h2>
           <Accordion className="space-y-4" collapsible type="single">
             {operatingPrinciples.map((principle) => {
@@ -289,8 +289,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="space-y-5">
-        <div className="flex flex-col gap-2">
+      <section className="space-y-6">
+        <div className="flex flex-col gap-3">
           <h2 className="text-2xl font-heading sm:text-3xl">Journey in systems craft</h2>
           <p className="max-w-3xl text-sm sm:text-base">
             From distributed systems engineering to product-system architecture,
@@ -335,8 +335,8 @@ export default function Home() {
         </Accordion>
       </section>
 
-      <section className="space-y-5">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <section className="space-y-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-2xl font-heading sm:text-3xl">Programs and platforms</h2>
             <p className="max-w-2xl text-sm sm:text-base">
