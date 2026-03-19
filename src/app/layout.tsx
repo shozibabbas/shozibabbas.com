@@ -1,14 +1,15 @@
+import Nav from '@/components/nav'
+import { ThemeProvider } from '@/components/theme-provider'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
-import Nav from '@/components/nav'
-import { ViewTransitions } from 'next-view-transitions'
-import { ThemeProvider } from '@/components/theme-provider'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'John Doe',
+  title: 'Sayyed Shozib Abbas',
+  description:
+    'Portfolio of Sayyed Shozib Abbas, a visionary systems builder shaping AI-enabled, cloud-native products with clear strategy, disciplined execution, and measurable outcomes.',
 }
 
 export default function RootLayout({
@@ -17,17 +18,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <ViewTransitions>
-      <html suppressHydrationWarning lang="en">
-        <body className={montserrat.className}>
-          <ThemeProvider attribute="class" disableTransitionOnChange>
-            <Nav />
-            <div className="text-foreground mx-auto w-[750px] max-w-full px-5 pt-28 pb-10">
-              {children}
-            </div>
-          </ThemeProvider>
-        </body>
-      </html>
-    </ViewTransitions>
+    <html suppressHydrationWarning lang="en">
+      <body className={`${montserrat.className} bg-background text-foreground min-h-screen antialiased`}>
+        <ThemeProvider attribute="class" disableTransitionOnChange>
+          <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0,transparent_31px,rgba(0,0,0,0.05)_32px),linear-gradient(to_bottom,transparent_0,transparent_31px,rgba(0,0,0,0.05)_32px)] bg-[size:32px_32px] opacity-30 dark:opacity-10" />
+            <div className="bg-main/25 absolute left-[-10rem] top-20 h-64 w-64 rounded-full blur-3xl" />
+            <div className="bg-secondary-background absolute right-0 top-0 h-72 w-72 rounded-full border-2 border-border blur-3xl opacity-60 dark:opacity-20" />
+          </div>
+          <Nav />
+          <main className="mx-auto w-full max-w-6xl px-4 pb-16 pt-28 sm:px-6 sm:pt-32">
+            {children}
+          </main>
+        </ThemeProvider>
+      </body>
+    </html>
   )
 }

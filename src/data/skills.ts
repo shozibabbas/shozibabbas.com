@@ -1,77 +1,89 @@
 import {
-  type IconType,
-  SiAstro,
-  SiBootstrap,
-  SiCss3,
-  SiDocker,
-  SiHtml5,
-  SiJavascript,
-  SiMongodb,
-  SiMysql,
-  SiNextdotjs,
-  SiNginx,
-  SiNodedotjs,
-  SiPostgresql,
-  SiReact,
-  SiRedis,
-  SiRubyonrails,
-  SiSass,
-  SiTailwindcss,
-} from '@icons-pack/react-simple-icons'
+    SiDocker,
+    SiDotnet,
+    SiElectron,
+    SiGooglecloud,
+    SiJavascript,
+    SiJenkins,
+    SiMongodb,
+    SiMysql,
+    SiNestjs,
+    SiNextdotjs,
+    SiNodedotjs,
+    SiReact,
+    SiRedux,
+    SiStripe,
+    SiTailwindcss,
+    SiTypescript,
+    SiVite,
+} from '@icons-pack/react-simple-icons';
+import { Cloud } from 'lucide-react';
+import type { ComponentType } from 'react';
 
-const SKILLS: { field: string; skills: { skill: string; icon: IconType }[] }[] =
+type SkillIcon = ComponentType<{ className?: string; title?: string }>
+
+const SKILLS: { field: string; skills: { skill: string; icon: SkillIcon }[] }[] =
   [
     {
-      field: 'Frontend',
+      field: 'Frontend Craft',
       skills: [
-        { skill: 'html', icon: SiHtml5 },
-        { skill: 'css', icon: SiCss3 },
-        { skill: 'javascript', icon: SiJavascript },
-        { skill: 'react', icon: SiReact },
-        { skill: 'sass', icon: SiSass },
-        { skill: 'tailwind', icon: SiTailwindcss },
-        { skill: 'nextjs', icon: SiNextdotjs },
-        { skill: 'astro', icon: SiAstro },
+        { skill: 'TypeScript', icon: SiTypescript },
+        { skill: 'JavaScript', icon: SiJavascript },
+        { skill: 'React', icon: SiReact },
+        { skill: 'Next.js', icon: SiNextdotjs },
+        { skill: 'Redux', icon: SiRedux },
+        { skill: 'Tailwind CSS', icon: SiTailwindcss },
+        { skill: 'Vite', icon: SiVite },
+        { skill: 'Electron', icon: SiElectron },
+      ],
+    },
+    {
+      field: 'Backend Systems',
+      skills: [
         {
-          skill: 'bootstrap',
-          icon: SiBootstrap,
+          skill: 'Node.js',
+          icon: SiNodedotjs,
+        },
+        {
+          skill: 'NestJS',
+          icon: SiNestjs,
+        },
+        {
+          skill: '.NET',
+          icon: SiDotnet,
+        },
+        {
+          skill: 'MongoDB',
+          icon: SiMongodb,
+        },
+        {
+          skill: 'MySQL',
+          icon: SiMysql,
+        },
+        {
+          skill: 'Docker',
+          icon: SiDocker,
         },
       ],
     },
     {
-      field: 'Backend',
+      field: 'Cloud and Automation',
       skills: [
         {
-          skill: 'nodejs',
-          icon: SiNodedotjs,
+          skill: 'AWS',
+          icon: Cloud,
         },
         {
-          skill: 'ruby on rails',
-          icon: SiRubyonrails,
+          skill: 'Google Cloud',
+          icon: SiGooglecloud,
         },
         {
-          skill: 'redis',
-          icon: SiRedis,
+          skill: 'Jenkins',
+          icon: SiJenkins,
         },
         {
-          skill: 'postgresql',
-          icon: SiPostgresql,
-        },
-        {
-          skill: 'mongodb',
-          icon: SiMongodb,
-        },
-        {
-          skill: 'mysql',
-          icon: SiMysql,
-        },
-        {
-          skill: 'nginx',
-          icon: SiNginx,
-        },
-        {
-          skill: 'docker',
-          icon: SiDocker,
+          skill: 'Stripe',
+          icon: SiStripe,
         },
       ],
     },

@@ -1,40 +1,64 @@
 import {
-  IconType,
-  SiGithub,
-  SiGmail,
-  SiLinkedin,
-  SiMedium,
-} from '@icons-pack/react-simple-icons'
+  FileText,
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  type LucideIcon,
+} from 'lucide-react';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function Links() {
-  const links: { icon: IconType; href: string }[] = [
+  const links: { icon: LucideIcon; href: string; label: string }[] = [
     {
-      icon: SiGmail,
-      href: 'mailto:johndoe@gmail.com',
+      icon: Linkedin,
+      href: 'https://www.linkedin.com/in/shozibabbas/',
+      label: 'LinkedIn',
     },
     {
-      icon: SiGithub,
-      href: 'https://github.com/johndoe',
+      icon: Github,
+      href: 'https://github.com/shozibabbas',
+      label: 'GitHub',
     },
     {
-      icon: SiLinkedin,
-      href: 'https://www.linkedin.com/in/johndoe/',
+      icon: Mail,
+      href: 'mailto:shozibabbas@gmail.com',
+      label: 'Email',
     },
     {
-      icon: SiMedium,
-      href: 'https://medium.com/@johndoe',
+      icon: Phone,
+      href: 'tel:+923319849845',
+      label: 'Call',
+    },
+    {
+      icon: FileText,
+      href: '/cv.pdf',
+      label: 'Resume',
     },
   ]
 
   return (
-    <div className="mr-auto mt-20 flex w-full flex-wrap items-center gap-10">
-      {links.map((link, id) => {
-        return (
-          <a target="_blank" key={id} href={link.href}>
-            <link.icon title="" />
-          </a>
-        )
-      })}
-    </div>
+    <Card className="gap-4 bg-secondary-background py-4">
+      <CardHeader className="border-b border-border">
+        <CardTitle className="text-xl sm:text-2xl">Build Together</CardTitle>
+        <CardDescription>
+          Open to ambitious product ideas, system design challenges, and collaborative builds.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="grid gap-3 sm:grid-cols-2">
+        {links.map((link) => {
+          return (
+            <Button asChild className="justify-start" key={link.label} variant="neutral">
+              <a href={link.href} rel="noreferrer" target="_blank" title={link.label}>
+                <link.icon className="h-4 w-4" />
+                <span>{link.label}</span>
+              </a>
+            </Button>
+          )
+        })}
+      </CardContent>
+    </Card>
   )
 }
