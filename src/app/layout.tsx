@@ -1,15 +1,16 @@
 import Nav from '@/components/nav'
 import { ThemeProvider } from '@/components/theme-provider'
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
+import { Manrope, Sora } from 'next/font/google'
 import './globals.css'
 
-const montserrat = Montserrat({ subsets: ['latin'] })
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-body' })
+const sora = Sora({ subsets: ['latin'], variable: '--font-display' })
 
 export const metadata: Metadata = {
   title: 'Sayyed Shozib Abbas',
   description:
-    'Portfolio of Sayyed Shozib Abbas, a visionary systems builder shaping AI-enabled, cloud-native products with clear strategy, disciplined execution, and measurable outcomes.',
+    'Portfolio of Sayyed Shozib Abbas, helping businesses turn complex ideas into clear product direction, reliable delivery, and measurable outcomes.',
 }
 
 export default function RootLayout({
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body className={`${montserrat.className} bg-background text-foreground min-h-screen antialiased`}>
+      <body
+        className={`${manrope.variable} ${sora.variable} bg-background text-foreground min-h-screen antialiased`}
+      >
         <ThemeProvider attribute="class" disableTransitionOnChange>
           <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0,transparent_31px,rgba(0,0,0,0.05)_32px),linear-gradient(to_bottom,transparent_0,transparent_31px,rgba(0,0,0,0.05)_32px)] bg-[size:32px_32px] opacity-30 dark:opacity-10" />

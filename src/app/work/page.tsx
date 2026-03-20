@@ -1,4 +1,3 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Badge } from '@/components/ui/badge'
 import {
@@ -10,54 +9,46 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import PROJECTS from '@/data/projects'
-import { cn } from '@/lib/utils'
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const outcomeSignals = [
   {
-    signal: 'Architectural Ownership',
-    evidence: 'Designed modular systems and technical strategy across web and AI services.',
+    signal: 'Stronger product direction',
+    evidence: 'Teams moved from scattered requests to focused plans with clear ownership.',
   },
   {
-    signal: 'Execution Reliability',
-    evidence: 'Established CI/CD and engineering standards for faster, safer releases.',
+    signal: 'Higher delivery confidence',
+    evidence: 'Launches became more predictable with better quality checks and release routines.',
   },
   {
-    signal: 'Cross-domain Delivery',
-    evidence: 'Delivered programs across finance, education, healthcare, and infrastructure.',
+    signal: 'Long-term scalability',
+    evidence: 'Platforms were prepared to handle growth without major rework each quarter.',
+  },
+]
+
+const deliveryPlaybook = [
+  {
+    title: '1) Clarify the target',
+    description: 'Align business goals, user outcomes, and team scope before building.',
+  },
+  {
+    title: '2) Execute with rhythm',
+    description: 'Set clear delivery cadence, ownership boundaries, and quality checkpoints.',
+  },
+  {
+    title: '3) Improve continuously',
+    description: 'Measure what worked, fix what did not, and strengthen the next release cycle.',
   },
 ]
 
 export default function Work() {
   return (
-    <div className="space-y-12 font-base sm:space-y-14">
+    <div className="space-y-14 sm:space-y-16">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -75,18 +66,16 @@ export default function Work() {
       <Card className="bg-main text-main-foreground">
         <CardHeader className="border-b border-border">
           <div className="flex flex-wrap gap-2">
-            <Badge>Selected work</Badge>
-            <Badge variant="neutral">AI</Badge>
-            <Badge variant="neutral">Healthcare</Badge>
-            <Badge variant="neutral">Distributed systems</Badge>
+            <Badge>Case studies</Badge>
+            <Badge variant="neutral">Business outcomes</Badge>
+            <Badge variant="neutral">Delivery leadership</Badge>
           </div>
-          <CardTitle className="text-3xl sm:text-4xl">Selected Work</CardTitle>
+          <CardTitle className="text-4xl leading-tight sm:text-5xl">Selected work</CardTitle>
           <CardDescription className="max-w-3xl text-base text-main-foreground sm:text-lg">
-            A curated set of programs that demonstrate how I turn complex
-            technical constraints into reliable business outcomes.
+            A practical view of how I help organizations turn product goals into consistent delivery and measurable growth.
           </CardDescription>
         </CardHeader>
-        <CardFooter className="border-t border-border">
+        <CardFooter className="border-t border-border pt-6">
           <Button asChild variant="neutral">
             <Link href="/about">
               See background
@@ -98,50 +87,9 @@ export default function Work() {
 
       <section className="space-y-6">
         <div className="space-y-2">
-          <h2 className="text-2xl font-heading sm:text-3xl">Case study preview</h2>
-          <p className="text-sm sm:text-base">
-            A quick scan of key programs before diving into challenge,
-            execution, and outcome.
-          </p>
-        </div>
-
-        <div className="px-12 py-1">
-          <Carousel opts={{ align: 'start', loop: true }}>
-            <CarouselContent>
-              {PROJECTS.map((project) => {
-                return (
-                  <CarouselItem className="md:basis-1/2 xl:basis-1/3" key={project.name}>
-                    <figure
-                      className={cn(
-                        'w-full overflow-hidden rounded-base border-2 border-border bg-main font-base shadow-shadow',
-                      )}
-                    >
-                      <AspectRatio ratio={4 / 3}>
-                        <img
-                          alt={project.name}
-                          className="h-full w-full object-cover"
-                          src={project.previewImage}
-                        />
-                      </AspectRatio>
-                      <figcaption className="border-t-2 text-main-foreground border-border p-4">
-                        {project.name} · {project.organization}
-                      </figcaption>
-                    </figure>
-                  </CarouselItem>
-                )
-              })}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-2xl font-heading sm:text-3xl">What these projects prove</h2>
-          <p className="text-sm sm:text-base">
-            Not just shipped features, but repeatable engineering leverage.
+          <h2 className="text-3xl sm:text-4xl">What this work demonstrates</h2>
+          <p className="text-sm text-foreground/70 sm:text-base">
+            Beyond features, these projects improved direction, delivery, and long-term scalability.
           </p>
         </div>
 
@@ -149,132 +97,101 @@ export default function Work() {
           <TableHeader>
             <TableRow>
               <TableHead>Signal</TableHead>
-              <TableHead>Evidence</TableHead>
+              <TableHead>Business evidence</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {outcomeSignals.map((item) => {
-              return (
-                <TableRow key={item.signal}>
-                  <TableCell className="font-heading">{item.signal}</TableCell>
-                  <TableCell>{item.evidence}</TableCell>
-                </TableRow>
-              )
-            })}
+            {outcomeSignals.map((item) => (
+              <TableRow key={item.signal}>
+                <TableCell className="font-heading">{item.signal}</TableCell>
+                <TableCell>{item.evidence}</TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </section>
 
-      <Tabs className="space-y-2" defaultValue="featured">
-        <TabsList className="grid h-auto w-full grid-cols-3 gap-2">
-          <TabsTrigger value="featured">Narrative</TabsTrigger>
-          <TabsTrigger value="platforms">Execution style</TabsTrigger>
-          <TabsTrigger value="systems">Impact lens</TabsTrigger>
-        </TabsList>
-        <TabsContent className="pt-1" value="featured">
-          <Card className="bg-secondary-background py-4">
-            <CardContent className="pt-4 text-sm sm:text-base">
-              Every project here follows the same pattern: define the business
-              objective, build the right technical system, then institutionalize
-              delivery quality.
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent className="pt-1" value="platforms">
-          <Card className="bg-secondary-background py-4">
-            <CardContent className="pt-4 text-sm sm:text-base">
-              I combine architecture design with hands-on execution and team
-              enablement so systems continue shipping beyond initial launch.
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent className="pt-1" value="systems">
-          <Card className="bg-secondary-background py-4">
-            <CardContent className="pt-4 text-sm sm:text-base">
-              The measure of success is durable velocity: reliable releases,
-              maintainable systems, and visible product progress.
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-3xl sm:text-4xl">Case studies</h2>
+          <p className="text-sm text-foreground/70 sm:text-base">
+            Selected engagements from my CV, written in business language.
+          </p>
+        </div>
 
-      <div className="grid gap-8">
-        {PROJECTS.map((project) => {
-          return (
+        <div className="grid gap-6">
+          {PROJECTS.map((project) => (
             <Card className="bg-secondary-background" key={project.name}>
               <CardHeader className="border-b border-border">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <p className="text-sm">{project.organization}</p>
-                    <CardTitle className="text-2xl">{project.name}</CardTitle>
-                    <CardDescription className="mt-1 text-sm sm:text-base">
-                      {project.timeframe}
-                    </CardDescription>
-                  </div>
-
-                  <Dialog>
-                    <DialogTrigger asChild>
-                      <Button variant="neutral">Open full brief</Button>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-2xl">
-                      <DialogHeader>
-                        <DialogTitle>{project.name}</DialogTitle>
-                        <DialogDescription>
-                          {project.organization} · {project.timeframe}
-                        </DialogDescription>
-                      </DialogHeader>
-                      <div className="space-y-4 text-sm sm:text-base">
-                        <p>{project.description}</p>
-                        <ul className="list-disc space-y-2 pl-5">
-                          {project.highlights.map((highlight) => {
-                            return <li key={highlight}>{highlight}</li>
-                          })}
-                        </ul>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                </div>
+                <p className="text-xs uppercase tracking-wide text-foreground/60">
+                  {project.organization} · {project.timeframe}
+                </p>
+                <CardTitle className="text-2xl">{project.name}</CardTitle>
+                <CardDescription>{project.description}</CardDescription>
               </CardHeader>
 
-              <CardContent className="grid gap-6 pt-6 lg:grid-cols-[1.1fr_0.9fr]">
-                <div className="space-y-4">
-                  <img
+              <CardContent className="grid gap-6 pt-6 lg:grid-cols-[1fr_1.05fr]">
+                <AspectRatio ratio={16 / 10}>
+                  <Image
                     alt={project.name}
-                    className="border-border rounded-base h-auto w-full border-2 bg-background"
+                    className="h-full w-full rounded-base border-2 border-border object-cover"
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     src={project.previewImage}
                   />
-                  <p className="text-sm sm:text-base">
-                    <span className="font-heading">Challenge: </span>
-                    {project.description}
-                  </p>
+                </AspectRatio>
+
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-heading">What was needed</h3>
+                    <p className="text-sm sm:text-base">Deliver a reliable product experience while supporting growth and team velocity.</p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-heading">What I led</h3>
+                    <ul className="space-y-2 text-sm sm:text-base">
+                      {project.highlights.map((highlight) => (
+                        <li className="flex items-start gap-2.5" key={highlight}>
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-main" />
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                   <div className="flex flex-wrap gap-2">
-                    {project.focusAreas.map((area) => {
-                      return (
-                        <Badge key={area} variant="neutral">
-                          {area}
-                        </Badge>
-                      )
-                    })}
+                    {project.focusAreas.map((area) => (
+                      <Badge key={area} variant="neutral">
+                        {area}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
-
-                <Accordion collapsible type="single" defaultValue={`${project.name}-execution`}>
-                  <AccordionItem value={`${project.name}-execution`}>
-                    <AccordionTrigger>Execution and impact</AccordionTrigger>
-                    <AccordionContent>
-                      <ul className="list-disc space-y-2 pl-5 text-sm sm:text-base">
-                        {project.highlights.map((highlight) => {
-                          return <li key={highlight}>{highlight}</li>
-                        })}
-                      </ul>
-                    </AccordionContent>
-                  </AccordionItem>
-                </Accordion>
               </CardContent>
             </Card>
-          )
-        })}
-      </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-3xl sm:text-4xl">Delivery playbook</h2>
+          <p className="max-w-2xl text-sm text-foreground/70 sm:text-base">
+            A repeatable operating model I use to keep teams aligned and delivery outcomes stable.
+          </p>
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          {deliveryPlaybook.map((step) => (
+            <Card className="bg-secondary-background" key={step.title}>
+              <CardHeader>
+                <CardTitle className="text-xl">{step.title}</CardTitle>
+                <CardDescription>{step.description}</CardDescription>
+              </CardHeader>
+            </Card>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }

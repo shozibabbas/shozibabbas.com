@@ -12,13 +12,13 @@ const PROJECTS: {
     organization: 'Compact Machines',
     timeframe: 'Oct 2025 - Present',
     description:
-      'AI-powered due diligence platform engineered for enterprise-grade analysis workflows, reliability, and scale.',
+      'A due diligence product that helps teams evaluate opportunities faster with more confidence.',
     previewImage: '/work/hudlink-cover.png',
     focusAreas: ['AI systems', 'Cloud-native architecture', 'CI/CD', 'Full-stack delivery'],
     highlights: [
-      'Led architecture and engineering execution for modular web and AI services.',
-      'Delivered queue-based GPU processing pipelines across AWS, GCP, and on-prem environments.',
-      'Standardized delivery and platform practices to support faster, safer releases.',
+      'Led product and engineering delivery from strategy to production.',
+      'Improved reliability and speed for high-volume analysis workflows.',
+      'Set clearer delivery standards so teams could ship faster with fewer incidents.',
     ],
   },
   {
@@ -26,13 +26,13 @@ const PROJECTS: {
     organization: 'AILA',
     timeframe: 'Apr 2024 - Sep 2025',
     description:
-      'Multi-surface academic platform spanning web, mobile, and desktop with AI-assisted workflows and secure operations.',
+      'An education platform delivered across web, mobile, and desktop for better student and team experiences.',
     previewImage: '/work/aila-cover.png',
     focusAreas: ['Edtech', 'Electron', 'NestJS', 'AWS'],
     highlights: [
-      'Owned end-to-end product delivery from concept through production launch.',
-      'Integrated AI workflows, payments, identity, and cloud infrastructure into a cohesive platform.',
-      'Established engineering standards, CI/CD, and architecture documentation for scale.',
+      'Owned delivery from concept to launch across multiple product surfaces.',
+      'Unified core platform capabilities into one consistent user experience.',
+      'Improved team delivery rhythm with clearer standards and release practices.',
     ],
   },
   {
@@ -40,13 +40,13 @@ const PROJECTS: {
     organization: 'siParadigm',
     timeframe: 'Feb 2022 - Apr 2024',
     description:
-      'Enterprise pathology software for image-intensive medical workflows, annotation precision, and modernized clinical interfaces.',
+      'A clinical product suite designed to improve workflow speed and accuracy in pathology operations.',
     previewImage: '/work/pathology-cover.jpg',
     focusAreas: ['React', 'React Native', 'ASP.NET', 'Microfrontends'],
     highlights: [
-      'Built high-performance web and mobile experiences for complex clinical workflows.',
-      'Engineered large-image annotation and OCR review tooling for operational accuracy.',
-      'Introduced monorepo and microfrontend patterns to modernize legacy systems incrementally.',
+      'Delivered web and mobile experiences for high-context clinical teams.',
+      'Improved operational accuracy through better image review workflows.',
+      'Supported modernization efforts without disrupting live operations.',
     ],
   },
   {
@@ -54,13 +54,13 @@ const PROJECTS: {
     organization: 'Alachisoft',
     timeframe: 'Jul 2018 - Oct 2020',
     description:
-      'Cloud management and diagnostics tooling for distributed caching systems optimized for low latency and reliability.',
+      'Cloud tooling that helped teams monitor, manage, and scale distributed platform operations.',
     previewImage: '/work/ncache-cover.png',
     focusAreas: ['Distributed systems', '.NET', 'Java', 'Cloud tooling'],
     highlights: [
-      'Contributed to core distributed caching engineering for high-throughput workloads.',
-      'Built provisioning, monitoring, and cluster management tooling for cloud deployments.',
-      'Improved cross-platform interoperability between .NET and Java clients.',
+      'Contributed to a core platform used in high-demand production environments.',
+      'Built management and monitoring tools for smoother cloud operations.',
+      'Improved compatibility for teams working across different tech stacks.',
     ],
   },
 ]
