@@ -14,17 +14,17 @@ const businessOutcomes = [
   {
     title: 'Clear direction for product teams',
     description:
-      'I help teams focus on priorities, remove confusion, and move from ideas to delivery plans quickly.',
+      'I help leadership teams turn broad ambition into focused priorities, decisions, and delivery plans.',
   },
   {
     title: 'Faster and safer launches',
     description:
-      'I build repeatable delivery habits so releases become more predictable and less stressful.',
+      'I create repeatable delivery systems so releases feel more predictable, lower-risk, and easier to scale.',
   },
   {
     title: 'Scalable growth foundations',
     description:
-      'I shape products and platforms that grow with demand without constant rewrites.',
+      'I shape products and internal systems that can support growth without constant reinvention.',
   },
 ]
 
@@ -59,19 +59,19 @@ export default function Home() {
             </div>
             <CardTitle className="text-4xl leading-tight sm:text-5xl lg:text-6xl">Sayyed Shozib Abbas</CardTitle>
             <CardDescription className="max-w-2xl text-base text-main-foreground sm:text-lg">
-              I help businesses turn complex ideas into products people trust, teams can scale,
-              and leaders can grow with confidence.
+              I work with ambitious businesses to turn complex ideas into clear offers,
+              dependable products, and delivery systems that actually hold up as the company grows.
             </CardDescription>
           </CardHeader>
 
           <CardContent className="space-y-4 pt-6 text-base sm:text-lg">
             <p>
-              I have led initiatives across finance, education, healthcare, and infrastructure,
-              turning strategic goals into measurable delivery.
+              My background spans finance, education, healthcare, and platform products,
+              with hands-on leadership across product direction, execution, and team operations.
             </p>
             <p>
-              My focus is simple: clear outcomes, strong execution, and products that keep improving
-              after launch.
+              The common thread is simple: make the offer clearer, make delivery stronger,
+              and build trust through consistent execution.
             </p>
           </CardContent>
 
@@ -118,30 +118,11 @@ export default function Home() {
       </section>
 
       <section className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-3xl sm:text-4xl">Business outcomes</h2>
-          <p className="max-w-2xl text-sm text-foreground/70 sm:text-base">
-            The value I am usually hired to create.
-          </p>
-        </div>
-        <div className="grid gap-5 lg:grid-cols-3">
-          {businessOutcomes.map((item) => (
-            <Card className="bg-secondary-background" key={item.title}>
-              <CardHeader>
-                <CardTitle className="text-xl">{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-2">
             <h2 className="text-3xl sm:text-4xl">Selected work</h2>
             <p className="max-w-2xl text-sm text-foreground/70 sm:text-base">
-              A snapshot of projects where strategy, delivery, and outcomes came together.
+              Tangible proof of work across businesses that needed sharper direction, stronger delivery, and better outcomes.
             </p>
           </div>
           <Button asChild variant="neutral">
@@ -174,6 +155,25 @@ export default function Home() {
                   <p className="text-sm sm:text-base">{project.description}</p>
                 </div>
               </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="space-y-2">
+          <h2 className="text-3xl sm:text-4xl">Business outcomes</h2>
+          <p className="max-w-2xl text-sm text-foreground/70 sm:text-base">
+            The value I am usually hired to create once the work is underway.
+          </p>
+        </div>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {businessOutcomes.map((item) => (
+            <Card className="bg-secondary-background" key={item.title}>
+              <CardHeader>
+                <CardTitle className="text-xl">{item.title}</CardTitle>
+                <CardDescription>{item.description}</CardDescription>
+              </CardHeader>
             </Card>
           ))}
         </div>

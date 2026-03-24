@@ -3,9 +3,11 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
+  SheetClose,
   Sheet,
   SheetContent,
   SheetDescription,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -14,10 +16,16 @@ import clsx from 'clsx'
 import { ArrowUpRight, Menu } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { ThemeSwitcher } from './theme-switcher'
 
 export default function Nav() {
   const path = usePathname()
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    setOpen(false)
+  }, [path])
 
   const links = [
     {
@@ -78,14 +86,14 @@ export default function Nav() {
 
         <div className="flex items-center gap-2">
           <Badge className="hidden md:inline-flex" variant="neutral">
-            Open to mission-driven roles
+            Open for select consulting and leadership engagements
           </Badge>
-          <ThemeSwitcher />
+          <ThemeSwitcher className="hidden md:inline-flex" />
 
           <div className="md:hidden">
-            <Sheet>
+            <Sheet onOpenChange={setOpen} open={open}>
               <SheetTrigger asChild>
-                <Button size="icon" variant="neutral">
+                <Button className="size-11" size="icon" variant="neutral">
                   <Menu />
                   <span className="sr-only">Open navigation menu</span>
                 </Button>
@@ -101,27 +109,32 @@ export default function Nav() {
                 <div className="flex flex-1 flex-col gap-3 px-4 pb-4 pt-2">
                   {links.map((link) => {
                     return (
-                      <Button
-                        asChild
-                        className="justify-between"
-                        key={link.path}
-                        variant={path === link.path ? 'neutral' : 'reverse'}
-                      >
-                        <Link href={link.path}>
-                          {link.text}
-                          <ArrowUpRight className="h-4 w-4" />
-                        </Link>
-                      </Button>
+                      <SheetClose asChild key={link.path}>
+                        <Button
+                          asChild
+                          className="justify-between"
+                          variant={path === link.path ? 'neutral' : 'reverse'}
+                        >
+                          <Link href={link.path}>
+                            {link.text}
+                            <ArrowUpRight className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </SheetClose>
                     )
                   })}
 
                   <div className="border-border rounded-base bg-secondary-background mt-2 border-2 p-3 text-sm text-foreground">
                     <p className="font-heading">Available for product impact conversations</p>
                     <p className="mt-1 text-xs">
-                      AI platforms, product systems strategy, and execution architecture.
+                      Product direction, delivery leadership, and business-focused execution.
                     </p>
                   </div>
                 </div>
+
+                <SheetFooter>
+                  <ThemeSwitcher className="bg-secondary-background text-foreground hover:bg-background" showLabel />
+                </SheetFooter>
               </SheetContent>
             </Sheet>
           </div>

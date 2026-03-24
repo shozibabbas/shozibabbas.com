@@ -42,9 +42,9 @@ export default function Links() {
   return (
     <Card className="gap-4 bg-secondary-background py-4">
       <CardHeader className="border-b border-border">
-        <CardTitle className="text-xl sm:text-2xl">Build Together</CardTitle>
+        <CardTitle className="text-xl sm:text-2xl">Start a conversation</CardTitle>
         <CardDescription>
-          Open to ambitious product ideas, system design challenges, and collaborative builds.
+          For consulting, product strategy, delivery leadership, or a focused build engagement.
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-3 sm:grid-cols-2">

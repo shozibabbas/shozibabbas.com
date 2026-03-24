@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={`${manrope.variable} ${sora.variable} bg-background text-foreground min-h-screen antialiased`}
       >
-        <ThemeProvider attribute="class" disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
             <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_0,transparent_31px,rgba(0,0,0,0.05)_32px),linear-gradient(to_bottom,transparent_0,transparent_31px,rgba(0,0,0,0.05)_32px)] bg-[size:32px_32px] opacity-30 dark:opacity-10" />
             <div className="bg-main/25 absolute left-[-10rem] top-20 h-64 w-64 rounded-full blur-3xl" />
