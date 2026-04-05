@@ -14,7 +14,7 @@ export default function Links() {
   const links: { icon: LucideIcon; href: string; label: string }[] = [
     {
       icon: Linkedin,
-      href: 'https://www.linkedin.com/in/shozibabbas/',
+      href: 'https://linkedin.com/in/sayyed-shozib-abbas',
       label: 'LinkedIn',
     },
     {
