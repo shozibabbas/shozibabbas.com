@@ -40,6 +40,10 @@ export default function Nav() {
       path: '/work',
       text: 'Work',
     },
+    {
+      path: '/contact',
+      text: 'Contact',
+    },
   ]
 
   return (
