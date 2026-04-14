@@ -2,47 +2,88 @@
 
 # Portfolio
 
-Portfolio is a neobrutalism-styled nextjs tailwind template for portfolios.
+This is an open-source Next.js portfolio project built with Tailwind CSS.
+If you want to use it, fork it, clone it, customize it, and deploy your own version.
 
-## Get started
+## Use this repository
 
-[Create a new repo](https://github.com/neobrutalism-templates/portfolio/generate) from this template.
+You can use this project in two ways:
 
-### Installation
+1. Fork this repository on GitHub (recommended)
+2. Or clone it directly:
 
-This template uses `pnpm` package manager so make sure you have it installed.
+```bash
+git clone https://github.com/shozibabbas/shozibabbas.com.git
+cd shozibabbas.com
+```
 
-To install all dependencies run:
+## Local setup
+
+### Prerequisites
+
+- Node.js 20+
+- npm or pnpm
+
+### Install dependencies
+
+Using npm:
+
+```bash
+npm install
+```
+
+Using pnpm:
 
 ```bash
 pnpm i
 ```
 
-To run the app locally:
+### Run the app locally
+
+Using npm:
+
+```bash
+npm run dev
+```
+
+Using pnpm:
 
 ```bash
 pnpm run dev
 ```
 
-### Config
+Then open http://localhost:3000.
+
+## Available scripts
+
+Using npm:
+
+- `npm run dev` - start development server
+- `npm run build` - create production build
+- `npm run start` - run production server
+- `npm run lint` - run linter
+
+Using pnpm, replace `npm run` with `pnpm`.
+
+## Project customization
 
 - Inside `layout.tsx` update the metadata
 - Inside `page.tsx` update the content
 - Update the `favicon.ico`
 
-### Content config
+### Content configuration
 
 #### Links on the home page
 
-To update the links on the home page go to `src/components/links.tsx` and inside `links` array add or remove objects. Each object has 2 properties, `icon`, and `href`. `href` is self-explanatory, and inside `icon` you'll put an icon imported from `@icons-pack/react-simple-icons`. Visit [simpleicons.org](https://simpleicons.org/) to see all the icons. Import them by adding `Si` prefix to their name as I imported them in `links` component.
+To update the links on the home page go to `src/components/links.tsx` and inside `links` array add or remove objects. Each object has 2 properties, `icon` and `href`. `href` is self-explanatory, and inside `icon` you will put an icon imported from `@icons-pack/react-simple-icons`. Visit [simpleicons.org](https://simpleicons.org/) to see all icons. Import them by adding `Si` prefix to their name.
 
 #### Updating the rest of the content
 
-Inside `data` folder you have the rest of the content you can edit.
+Inside the `src/data` folder you have the rest of the content you can edit.
 
 #### Updating the `previewImage` in `projects.ts`
 
-Make sure to put `/` + name of the picture that's inside public folder. e.g. you have a `my-project.png` picture inside `public` folder, you'll type:
+Make sure to put `/` + image file name that exists inside the `public` folder. For example, if you have `my-project.png` inside `public`, you should write:
 
 ```ts
 previewImage: '/my-project.png'
@@ -50,13 +91,41 @@ previewImage: '/my-project.png'
 
 ##### Image aspect ratio
 
-Inside `app/work/page.tsx` `previewImage` is wrapped inside AspectRatio component. Change the `ratio` prop so it suits your needs (default preview images are 710 x 260, so I set the ratio to be `71 / 26`).
+Inside `src/app/work/page.tsx`, `previewImage` is wrapped inside the `AspectRatio` component. Change the `ratio` prop so it suits your needs.
 
 #### Updating skills
 
-I need to clarify how to edit skills since it looks confusing at first. Inside the `skills.ts` inside the `SKILLS` array, each object in the array is a field of skills (can be anything: frontend, backend, devops, design etc). Each object has a `field` prop which is the field name. Also, each object has a `skills` array where each array member has a `skill` value (used as tooltip value), and `icon` is the icon that will be displayed.
-You update them the same way you'd update links on the home page.
+Inside `skills.ts`, within the `SKILLS` array, each object represents a skill field (frontend, backend, DevOps, design, and so on). Each object has:
+
+- `field`: field name
+- `skills`: array of items
+- each item has `skill` (tooltip text) and `icon` (displayed icon)
+
+Update them the same way you update links on the home page.
 
 ### Styling
 
-To change the styling visit [styling docs](https://neobrutalism.dev/styling), and copy the desired styling to your css like it's shown in the styling docs.
+To change the styling, visit [styling docs](https://neobrutalism.dev/styling), and copy the desired styles into your CSS as shown there.
+
+## Deployment
+
+You can deploy this project on Vercel, Netlify, or any Node-compatible hosting platform.
+
+For Vercel:
+
+1. Import your forked repo
+2. Use default Next.js settings
+3. Deploy
+
+## Contributing
+
+Contributions are welcome.
+
+1. Fork the repo
+2. Create a branch
+3. Make your changes
+4. Open a pull request
+
+## License
+
+This repository is open source under the [LICENSE](LICENSE) file.
