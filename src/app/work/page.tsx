@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 // ─── Case study data ──────────────────────────────────────────────────────────
@@ -27,6 +28,7 @@ const caseStudies = [
       'System handles concurrent evaluation requests without degradation',
       'Architecture scales horizontally as data volume grows',
     ],
+    screenshot: '/work/hudlink-cover.png',
     ui: 'hudlink',
   },
   {
@@ -52,6 +54,7 @@ const caseStudies = [
       'Unified backend made feature rollouts simultaneous across platforms',
       'Student engagement metrics improved after mobile launch',
     ],
+    screenshot: '/work/aila-cover.png',
     ui: 'aila',
   },
   {
@@ -77,6 +80,7 @@ const caseStudies = [
       'Eliminated manual handoffs between disconnected systems',
       'System deployed in production without downtime incidents',
     ],
+    screenshot: '/work/pathology-cover.jpg',
     ui: 'pathology',
   },
 ]
@@ -349,7 +353,7 @@ export default function Work() {
               </div>
             </div>
 
-            {/* What I Built + Mock UI */}
+            {/* What I Built + Screenshot */}
             <div className="mb-8 grid gap-6 lg:grid-cols-2">
               <div className="space-y-4">
                 <p className="text-[11px] font-medium uppercase tracking-widest text-main">What I Built</p>
@@ -373,10 +377,15 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="overflow-hidden rounded-xl">
-                {cs.ui === 'hudlink' && <HudLinkUI />}
-                {cs.ui === 'aila' && <AILAUi />}
-                {cs.ui === 'pathology' && <PathologyUI />}
+              <div className="relative overflow-hidden rounded-xl border border-foreground/10">
+                <Image
+                  src={cs.screenshot}
+                  alt={`${cs.label} screenshot`}
+                  width={800}
+                  height={500}
+                  className="h-full w-full object-cover object-top"
+                  loading="lazy"
+                />
               </div>
             </div>
 
@@ -403,7 +412,7 @@ export default function Work() {
         <div className="space-y-2">
           <h2 className="font-heading text-3xl sm:text-4xl">What the interfaces look like</h2>
           <p className="text-sm text-foreground/60 sm:text-base">
-            Clean, data-dense UIs built for real workflows — not demo screenshots.
+            Clean, data-dense UIs built for real workflows.
           </p>
         </div>
 
