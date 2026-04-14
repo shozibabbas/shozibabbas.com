@@ -1,3 +1,4 @@
+import Footer from '@/components/footer'
 import Nav from '@/components/nav'
 import { ThemeProvider } from '@/components/theme-provider'
 import type { Metadata } from 'next'
@@ -8,9 +9,9 @@ const manrope = Manrope({ subsets: ['latin'], variable: '--font-body' })
 const sora = Sora({ subsets: ['latin'], variable: '--font-display' })
 
 export const metadata: Metadata = {
-  title: 'Sayyed Shozib Abbas',
+  title: 'Sayyed Shozib Abbas — Product Engineer',
   description:
-    'Portfolio of Sayyed Shozib Abbas, helping businesses turn complex ideas into clear product direction, reliable delivery, and measurable outcomes.',
+    'I build scalable web apps, dashboards, and SaaS platforms. Helping startups and businesses turn ideas into fast, reliable, and scalable digital products.',
 }
 
 export default function RootLayout({
@@ -33,6 +34,7 @@ export default function RootLayout({
           <main className="mx-auto w-full max-w-6xl px-4 pb-16 pt-28 sm:px-6 sm:pt-32">
             {children}
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

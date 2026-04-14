@@ -86,8 +86,11 @@ export default function Nav() {
 
         <div className="flex items-center gap-2">
           <Badge className="hidden md:inline-flex" variant="neutral">
-            Open for select consulting and leadership engagements
+            Available for new projects
           </Badge>
+          <Button asChild className="hidden md:inline-flex" size="sm">
+            <a href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something">Book a Call</a>
+          </Button>
           <ThemeSwitcher className="hidden md:inline-flex" />
 
           <div className="md:hidden">
