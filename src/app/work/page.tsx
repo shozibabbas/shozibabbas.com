@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import CaseStudyCard from '@/components/CaseStudyCard'
 
 // ─── Case study data ──────────────────────────────────────────────────────────
 
@@ -319,6 +320,87 @@ export default function Work() {
 
       {/* ── Case studies ────────────────────────────────────────────────── */}
       <section className="space-y-16">
+        <CaseStudyCard
+          title="VertBoard — Digital Signage & Ad Marketplace Platform"
+          subtitle="Full-scale SaaS platform for managing screens, scheduling content, and monetizing ad inventory"
+          problem={
+            <>
+              <p>
+                Businesses with digital screens (TVs, billboards, vehicles) struggle to:
+              </p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Manage content across multiple locations</li>
+                <li className="list-disc">Schedule playlists efficiently</li>
+                <li className="list-disc">Monetize unused screen time</li>
+              </ul>
+              <p>
+                At the same time, advertisers lack access to a unified platform to run targeted campaigns on physical screens.
+              </p>
+            </>
+          }
+          solution={
+            <>
+              <p>Built a full-stack platform that combines:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Digital signage management</li>
+                <li className="list-disc">Ad marketplace</li>
+                <li className="list-disc">Campaign targeting and analytics</li>
+              </ul>
+              <p>
+                The system allows screen owners to control content and generate revenue, while advertisers can run targeted campaigns across a distributed network.
+              </p>
+            </>
+          }
+          build={
+            <ul className="space-y-2 pl-5">
+              <li className="list-disc">Multi-tenant SaaS platform</li>
+              <li className="list-disc">Playlist and scheduling engine</li>
+              <li className="list-disc">Ad slot monetization system</li>
+              <li className="list-disc">Campaign creation and targeting system</li>
+              <li className="list-disc">Real-time analytics dashboards</li>
+              <li className="list-disc">Wallet and transaction system</li>
+              <li className="list-disc">Location-based targeting system</li>
+            </ul>
+          }
+          tech={
+            <>
+              <div>
+                <p className="font-medium text-foreground/80">Frontend:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">React / Next.js</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Backend:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">Node.js / NestJS</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Database:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">MySQL / Firestore</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Infrastructure:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">Firebase / AWS</li>
+                </ul>
+              </div>
+            </>
+          }
+          outcome={
+            <ul className="space-y-2 pl-5">
+              <li className="list-disc">Unified platform for screen management and monetization</li>
+              <li className="list-disc">Enabled advertisers to run targeted campaigns</li>
+              <li className="list-disc">Scalable system supporting multiple locations and screens</li>
+              <li className="list-disc">Real-time analytics and reporting</li>
+            </ul>
+          }
+          image="/images/vertboard.png"
+        />
+
         {caseStudies.map((cs, idx) => (
           <div
             key={cs.id}
