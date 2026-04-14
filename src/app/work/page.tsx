@@ -1,197 +1,589 @@
-import { AspectRatio } from '@/components/ui/aspect-ratio'
-import { Badge } from '@/components/ui/badge'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import PROJECTS from '@/data/projects'
 import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 
-const outcomeSignals = [
+// ─── Case study data ──────────────────────────────────────────────────────────
+
+const caseStudies = [
   {
-    signal: 'Stronger product direction',
-    evidence: 'Teams moved from scattered requests to focused plans with clear ownership.',
+    id: 'hudlink',
+    label: 'HudLink',
+    tagline: 'AI-powered due diligence platform',
+    domain: 'AI · Finance',
+    period: 'Contract Position · Oct 2020 – Present',
+    problem:
+      'Investment and BD teams were spending days manually reviewing financial data, company filings, and operational records. The process was slow, inconsistent, and impossible to scale.',
+    solution:
+      'Designed and built a platform that ingests large volumes of structured and unstructured financial data, processes it through AI-driven analysis pipelines, and surfaces insights through structured workflows and dashboards — so teams can evaluate opportunities in hours, not days.',
+    built: [
+      'Data ingestion and processing pipelines for financial and operational datasets',
+      'AI-driven analysis workflows with structured output and scoring',
+      'Dashboard interfaces with filtering, comparison views, and report generation',
+      'Microservice architecture to handle parallel processing at scale',
+      'Performance-optimized frontend for large dataset rendering',
+    ],
+    tech: ['React', 'Node.js', 'NestJS', 'AWS', 'PostgreSQL', 'MongoDB'],
+    outcomes: [
+      'Analysis workflows reduced from days to hours',
+      'System handles concurrent evaluation requests without degradation',
+      'Architecture scales horizontally as data volume grows',
+    ],
+    ui: 'hudlink',
   },
   {
-    signal: 'Higher delivery confidence',
-    evidence: 'Launches became more predictable with better quality checks and release routines.',
+    id: 'aila',
+    label: 'AILA Platform',
+    tagline: 'Multi-platform education system',
+    domain: 'Education · EdTech',
+    period: 'AILA · Apr 2024 – Dec 2025',
+    problem:
+      'An education organization needed a unified system that worked consistently across web, desktop, and mobile — with different interfaces for students, teachers, and administrators, all backed by the same data layer.',
+    solution:
+      'Built a full product ecosystem with shared backend services and platform-specific frontends. Students access content on web and mobile; administrators manage everything from a desktop app. All platforms share a single API layer and database, keeping data consistent across every surface.',
+    built: [
+      'Web application for student learning and content delivery',
+      'Electron-based desktop application for administrators',
+      'React Native mobile app for students on iOS and Android',
+      'Shared NestJS backend with role-based access control',
+      'AI-driven study tools and automated academic support workflows',
+    ],
+    tech: ['React', 'Electron', 'React Native', 'NestJS', 'MongoDB', 'AWS'],
+    outcomes: [
+      'Single codebase approach reduced cross-platform inconsistencies',
+      'Unified backend made feature rollouts simultaneous across platforms',
+      'Student engagement metrics improved after mobile launch',
+    ],
+    ui: 'aila',
   },
   {
-    signal: 'Long-term scalability',
-    evidence: 'Platforms were prepared to handle growth without major rework each quarter.',
+    id: 'pathology',
+    label: 'Digital Pathology Suite',
+    tagline: 'Clinical workflow system for pathology operations',
+    domain: 'Healthcare · Clinical',
+    period: 'siParadigm · Feb 2022 – Apr 2024',
+    problem:
+      'Pathology labs were running fragmented workflows across disconnected systems — sample tracking, image annotation, report generation, and case assignment were all handled separately, creating delays and errors in clinical operations.',
+    solution:
+      'Built a unified clinical workflow platform that connects sample intake, digital slide viewing, automated image processing, and report generation in a single system. Designed for high reliability and precision — errors in clinical software have direct consequences.',
+    built: [
+      'High-reliability sample tracking and case management system',
+      'Digital slide viewer with annotation tools for pathologists',
+      'Automated image processing pipeline with AI-assisted analysis',
+      'Report generation workflows with structured output and audit trails',
+      'Role-based access for lab staff, pathologists, and administrators',
+    ],
+    tech: ['React', 'Node.js', 'MySQL', 'Docker', 'AWS', 'WebSockets'],
+    outcomes: [
+      'Case turnaround time reduced significantly across lab operations',
+      'Eliminated manual handoffs between disconnected systems',
+      'System deployed in production without downtime incidents',
+    ],
+    ui: 'pathology',
   },
 ]
 
-const deliveryPlaybook = [
+const capabilities = [
   {
-    title: '1) Clarify the target',
-    description: 'Align business goals, user outcomes, and team scope before building.',
+    title: 'Building complex systems end-to-end',
+    description:
+      'From data modelling to deployed product — I handle the full stack without handoff gaps.',
   },
   {
-    title: '2) Execute with rhythm',
-    description: 'Set clear delivery cadence, ownership boundaries, and quality checkpoints.',
+    title: 'Designing scalable architectures',
+    description:
+      'Systems built to handle growth from day one. Not patched later when things break.',
   },
   {
-    title: '3) Improve continuously',
-    description: 'Measure what worked, fix what did not, and strengthen the next release cycle.',
+    title: 'Creating high-performance applications',
+    description:
+      'Fast load times, efficient data fetching, and UIs that hold up under real usage.',
+  },
+  {
+    title: 'Handling real-world product challenges',
+    description:
+      'Multi-platform systems, clinical-grade reliability, AI pipelines — products that have real consequences.',
   },
 ]
+
+// ─── Mock UI panels ───────────────────────────────────────────────────────────
+
+function HudLinkUI() {
+  const metrics = [
+    { label: 'Deals Reviewed', value: '284', delta: '+18%' },
+    { label: 'Avg Score', value: '74.2', delta: '+5pts' },
+    { label: 'Pipeline Value', value: '$4.1B', delta: '' },
+    { label: 'Active Analyses', value: '12', delta: '' },
+  ]
+  const deals = [
+    { name: 'Veridian Capital', stage: 'Due Diligence', score: 81, flag: false },
+    { name: 'Arctos Group', stage: 'Initial Review', score: 63, flag: true },
+    { name: 'Nexar Ventures', stage: 'Final Report', score: 91, flag: false },
+    { name: 'Brightline Partners', stage: 'Due Diligence', score: 74, flag: false },
+  ]
+  return (
+    <div className="space-y-3 rounded-xl border border-foreground/10 bg-secondary-background p-5 text-[11px]">
+      <div className="flex items-center justify-between">
+        <p className="text-[10px] font-medium uppercase tracking-wider text-foreground/40">Deal Pipeline · Q2 2024</p>
+        <span className="rounded-full bg-main/15 px-2 py-0.5 text-[9px] font-medium text-main">Live</span>
+      </div>
+      <div className="grid grid-cols-4 gap-2">
+        {metrics.map((m) => (
+          <div key={m.label} className="rounded-lg border border-foreground/10 bg-background/40 p-2.5">
+            <p className="text-[9px] text-foreground/40">{m.label}</p>
+            <p className="font-heading text-sm font-bold">{m.value}</p>
+            {m.delta && <p className="text-[9px] text-main">{m.delta}</p>}
+          </div>
+        ))}
+      </div>
+      <div className="space-y-1.5">
+        <div className="grid grid-cols-4 text-[9px] font-medium uppercase text-foreground/30">
+          <span className="col-span-2">Company</span>
+          <span>Stage</span>
+          <span className="text-right">Score</span>
+        </div>
+        {deals.map((d) => (
+          <div key={d.name} className="grid grid-cols-4 border-t border-foreground/5 py-1.5">
+            <span className="col-span-2 flex items-center gap-1.5 font-medium text-foreground/80">
+              {d.flag && <span className="h-1.5 w-1.5 rounded-full bg-yellow-400" />}
+              {!d.flag && <span className="h-1.5 w-1.5 rounded-full bg-main/50" />}
+              {d.name}
+            </span>
+            <span className="text-foreground/50">{d.stage}</span>
+            <span className={`text-right font-medium ${d.score >= 80 ? 'text-main' : d.score < 70 ? 'text-yellow-400' : 'text-foreground/60'}`}>
+              {d.score}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function AILAUi() {
+  const courses = [
+    { name: 'Advanced Mathematics', progress: 72, students: 340 },
+    { name: 'Physics — Module 4', progress: 55, students: 218 },
+    { name: 'English Literature', progress: 91, students: 187 },
+  ]
+  const activity = [
+    { user: 'student_291', action: 'Completed quiz', time: '2m ago' },
+    { user: 'student_104', action: 'Submitted assignment', time: '5m ago' },
+    { user: 'student_558', action: 'Started new module', time: '9m ago' },
+    { user: 'student_073', action: 'Asked AI tutor', time: '12m ago' },
+  ]
+  return (
+    <div className="space-y-3 rounded-xl border border-foreground/10 bg-secondary-background p-5 text-[11px]">
+      <div className="flex items-center justify-between">
+        <p className="text-[10px] font-medium uppercase tracking-wider text-foreground/40">Admin Panel · Course Overview</p>
+        <span className="rounded-full bg-main/15 px-2 py-0.5 text-[9px] font-medium text-main">745 Online</span>
+      </div>
+      <div className="space-y-2">
+        {courses.map((c) => (
+          <div key={c.name} className="rounded-lg border border-foreground/10 bg-background/40 p-2.5">
+            <div className="mb-1.5 flex items-center justify-between">
+              <span className="font-medium text-foreground/80">{c.name}</span>
+              <span className="text-[9px] text-foreground/40">{c.students} students</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-foreground/10">
+                <div className="h-full rounded-full bg-main/70" style={{ width: `${c.progress}%` }} />
+              </div>
+              <span className="text-[9px] text-foreground/40">{c.progress}%</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="space-y-1.5">
+        <p className="text-[9px] font-medium uppercase tracking-wider text-foreground/30">Recent Activity</p>
+        {activity.map((a) => (
+          <div key={a.user} className="flex items-center justify-between border-t border-foreground/5 py-1">
+            <span className="text-foreground/50">{a.action}</span>
+            <span className="text-[9px] text-foreground/30">{a.time}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function PathologyUI() {
+  const cases = [
+    { id: 'CASE-4821', tissue: 'Lung biopsy', status: 'Pending Review', priority: 'High' },
+    { id: 'CASE-4820', tissue: 'Skin lesion', status: 'In Analysis', priority: 'Normal' },
+    { id: 'CASE-4819', tissue: 'Colon tissue', status: 'Report Ready', priority: 'Normal' },
+    { id: 'CASE-4818', tissue: 'Lymph node', status: 'Archived', priority: 'Normal' },
+  ]
+  const services = [
+    { name: 'Image Processor', ok: true },
+    { name: 'AI Analysis Engine', ok: true },
+    { name: 'DICOM Server', ok: true },
+    { name: 'Audit Logger', ok: true },
+    { name: 'Report Generator', ok: false },
+  ]
+  return (
+    <div className="space-y-3 rounded-xl border border-foreground/10 bg-secondary-background p-5 text-[11px]">
+      <div className="flex items-center justify-between">
+        <p className="text-[10px] font-medium uppercase tracking-wider text-foreground/40">Pathology Workflow · Lab Dashboard</p>
+        <span className="rounded-full border border-foreground/10 px-2 py-0.5 text-[9px] text-foreground/50">Dr. S. Abbas</span>
+      </div>
+      <div className="space-y-1.5">
+        <div className="grid grid-cols-4 text-[9px] font-medium uppercase text-foreground/30">
+          <span>Case ID</span>
+          <span>Tissue Type</span>
+          <span>Status</span>
+          <span className="text-right">Priority</span>
+        </div>
+        {cases.map((c) => (
+          <div key={c.id} className="grid grid-cols-4 border-t border-foreground/5 py-1.5 text-[10px]">
+            <span className="font-mono text-foreground/60">{c.id}</span>
+            <span className="text-foreground/70">{c.tissue}</span>
+            <span className={`${c.status === 'Report Ready' ? 'text-main' : c.status === 'Pending Review' ? 'text-yellow-400' : 'text-foreground/50'}`}>
+              {c.status}
+            </span>
+            <span className={`text-right ${c.priority === 'High' ? 'font-medium text-red-400' : 'text-foreground/30'}`}>
+              {c.priority}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="space-y-1.5 border-t border-foreground/10 pt-2">
+        <p className="text-[9px] font-medium uppercase tracking-wider text-foreground/30">System Health</p>
+        {services.map((s) => (
+          <div key={s.name} className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <span className={`h-1.5 w-1.5 rounded-full ${s.ok ? 'bg-main' : 'bg-yellow-400'}`} />
+              <span className="text-foreground/60">{s.name}</span>
+            </div>
+            <span className={`text-[9px] ${s.ok ? 'text-main' : 'text-yellow-400'}`}>{s.ok ? 'Operational' : 'Degraded'}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// ─── Visual proof panels ──────────────────────────────────────────────────────
+
+const barData = [32, 48, 42, 61, 55, 70, 78, 65, 84, 79, 92, 96]
+const barMonths = ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
+
+const tableSample = [
+  { name: 'Acme Corp', plan: 'Enterprise', mrr: '$4,200', status: 'Active' },
+  { name: 'TechFlow', plan: 'Pro', mrr: '$890', status: 'Active' },
+  { name: 'Skyline', plan: 'Starter', mrr: '$190', status: 'Trial' },
+  { name: 'NovaLabs', plan: 'Enterprise', mrr: '$4,200', status: 'Active' },
+]
+
+const sprintTasks = [
+  { task: 'Auth module', pct: 100 },
+  { task: 'Dashboard UI', pct: 78 },
+  { task: 'API layer', pct: 55 },
+  { task: 'Reporting', pct: 30 },
+  { task: 'Mobile views', pct: 12 },
+]
+
+const topMetrics = [
+  { label: 'MRR', value: '$128K', delta: '+22%' },
+  { label: 'Users', value: '3,941', delta: '+31%' },
+  { label: 'Uptime', value: '99.97%', delta: '' },
+  { label: 'Churn', value: '1.1%', delta: '-0.4%' },
+]
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Work() {
   return (
-    <div className="space-y-14 sm:space-y-16">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink asChild>
-              <Link href="/">Home</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Work</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <div className="space-y-24 sm:space-y-32">
 
-      <Card className="bg-main text-main-foreground">
-        <CardHeader className="border-b border-border">
-          <div className="flex flex-wrap gap-2">
-            <Badge>Case studies</Badge>
-            <Badge variant="neutral">Business outcomes</Badge>
-            <Badge variant="neutral">Delivery leadership</Badge>
-          </div>
-          <CardTitle className="text-4xl leading-tight sm:text-5xl">Selected work</CardTitle>
-          <CardDescription className="max-w-3xl text-base text-main-foreground sm:text-lg">
-            A practical view of how I help organizations turn product goals into consistent delivery and measurable growth.
-          </CardDescription>
-        </CardHeader>
-        <CardFooter className="border-t border-border pt-6">
-          <Button asChild variant="neutral">
-            <Link href="/about">
-              See background
-              <ArrowRight />
-            </Link>
-          </Button>
-        </CardFooter>
-      </Card>
-
-      <section className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-3xl sm:text-4xl">What this work demonstrates</h2>
-          <p className="text-sm text-foreground/70 sm:text-base">
-            Beyond features, these projects improved direction, delivery, and long-term scalability.
-          </p>
-        </div>
-
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Signal</TableHead>
-              <TableHead>Business evidence</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {outcomeSignals.map((item) => (
-              <TableRow key={item.signal}>
-                <TableCell className="font-heading">{item.signal}</TableCell>
-                <TableCell>{item.evidence}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+      {/* ── Hero ────────────────────────────────────────────────────────── */}
+      <section className="space-y-5 pt-4">
+        <p className="text-sm font-medium text-main">Selected work</p>
+        <h1 className="font-heading text-4xl leading-tight sm:text-5xl lg:text-[3.25rem]">
+          Real systems built across AI,<br className="hidden sm:block" /> healthcare, and education.
+        </h1>
+        <p className="max-w-2xl text-base text-foreground/65 sm:text-lg">
+          Focused on building products that are reliable, scalable, and used in real environments.
+          Each project below is a system I designed and built end-to-end.
+        </p>
+        <a
+          href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something"
+          className="inline-flex items-center gap-2 rounded-md border-2 border-border bg-main px-6 py-3 text-sm font-medium text-main-foreground shadow-shadow transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none"
+        >
+          Start a Conversation
+          <ArrowRight className="h-4 w-4" />
+        </a>
       </section>
 
-      <section className="space-y-6">
+      {/* ── Case studies ────────────────────────────────────────────────── */}
+      <section className="space-y-16">
+        {caseStudies.map((cs, idx) => (
+          <div
+            key={cs.id}
+            className="rounded-2xl border border-foreground/10 bg-secondary-background p-8 sm:p-10"
+          >
+            {/* Header */}
+            <div className="mb-8 flex flex-wrap items-start justify-between gap-3">
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="rounded-full border border-foreground/15 px-3 py-0.5 text-xs text-foreground/50">
+                    {cs.domain}
+                  </span>
+                  <span className="text-xs text-foreground/35">{cs.period}</span>
+                </div>
+                <h2 className="font-heading text-2xl sm:text-3xl">{cs.label}</h2>
+                <p className="text-sm text-foreground/55">{cs.tagline}</p>
+              </div>
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-foreground/10 font-heading text-sm text-foreground/30">
+                0{idx + 1}
+              </span>
+            </div>
+
+            {/* Problem / Solution */}
+            <div className="mb-8 grid gap-6 sm:grid-cols-2">
+              <div className="space-y-2">
+                <p className="text-[11px] font-medium uppercase tracking-widest text-main">Problem</p>
+                <p className="text-sm leading-relaxed text-foreground/70">{cs.problem}</p>
+              </div>
+              <div className="space-y-2">
+                <p className="text-[11px] font-medium uppercase tracking-widest text-main">Solution</p>
+                <p className="text-sm leading-relaxed text-foreground/70">{cs.solution}</p>
+              </div>
+            </div>
+
+            {/* What I Built + Mock UI */}
+            <div className="mb-8 grid gap-6 lg:grid-cols-2">
+              <div className="space-y-4">
+                <p className="text-[11px] font-medium uppercase tracking-widest text-main">What I Built</p>
+                <ul className="space-y-2.5">
+                  {cs.built.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-foreground/70">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-main/70" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {cs.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-md border border-foreground/15 px-2.5 py-1 text-[11px] font-medium text-foreground/55"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-xl">
+                {cs.ui === 'hudlink' && <HudLinkUI />}
+                {cs.ui === 'aila' && <AILAUi />}
+                {cs.ui === 'pathology' && <PathologyUI />}
+              </div>
+            </div>
+
+            {/* Outcomes */}
+            <div className="rounded-xl border border-foreground/10 bg-background/30 p-5">
+              <p className="mb-3 text-[11px] font-medium uppercase tracking-widest text-main">Outcomes</p>
+              <div className="grid gap-2 sm:grid-cols-3">
+                {cs.outcomes.map((o) => (
+                  <div key={o} className="flex items-start gap-2.5 text-sm text-foreground/70">
+                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-main/15 text-[9px] font-bold text-main">
+                      ✓
+                    </span>
+                    {o}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* ── Visual proof grid ────────────────────────────────────────────── */}
+      <section className="space-y-8">
         <div className="space-y-2">
-          <h2 className="text-3xl sm:text-4xl">Case studies</h2>
-          <p className="text-sm text-foreground/70 sm:text-base">
-            Selected engagements from my CV, written in business language.
+          <h2 className="font-heading text-3xl sm:text-4xl">What the interfaces look like</h2>
+          <p className="text-sm text-foreground/60 sm:text-base">
+            Clean, data-dense UIs built for real workflows — not demo screenshots.
           </p>
         </div>
 
-        <div className="grid gap-6">
-          {PROJECTS.map((project) => (
-            <Card className="bg-secondary-background" key={project.name}>
-              <CardHeader className="border-b border-border">
-                <p className="text-xs uppercase tracking-wide text-foreground/60">
-                  {project.organization} · {project.timeframe}
-                </p>
-                <CardTitle className="text-2xl">{project.name}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Top metrics */}
+          <div className="rounded-xl border border-foreground/10 bg-secondary-background p-5">
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-wider text-foreground/40">Platform metrics</p>
+            <div className="grid grid-cols-2 gap-3">
+              {topMetrics.map((m) => (
+                <div key={m.label} className="rounded-lg border border-foreground/10 bg-background/40 p-3">
+                  <p className="text-[9px] text-foreground/40">{m.label}</p>
+                  <p className="font-heading text-sm font-bold">{m.value}</p>
+                  {m.delta && <p className="text-[9px] text-main">{m.delta}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
 
-              <CardContent className="grid gap-6 pt-6 lg:grid-cols-[1fr_1.05fr]">
-                <AspectRatio ratio={16 / 10}>
-                  <Image
-                    alt={project.name}
-                    className="h-full w-full rounded-base border-2 border-border object-cover"
-                    fill
-                    loading="lazy"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    src={project.previewImage}
-                  />
-                </AspectRatio>
+          {/* Bar chart */}
+          <div className="rounded-xl border border-foreground/10 bg-secondary-background p-5">
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-wider text-foreground/40">Monthly revenue</p>
+            <div className="flex h-28 items-end gap-1">
+              {barData.map((h, i) => (
+                <div
+                  key={i}
+                  className="flex-1 rounded-sm bg-main/50 transition-all hover:bg-main/90"
+                  style={{ height: `${h}%` }}
+                />
+              ))}
+            </div>
+            <div className="mt-2 flex justify-between text-[8px] text-foreground/25">
+              {barMonths.map((m) => <span key={m}>{m}</span>)}
+            </div>
+          </div>
 
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-heading">What was needed</h3>
-                    <p className="text-sm sm:text-base">Deliver a reliable product experience while supporting growth and team velocity.</p>
+          {/* Customer table */}
+          <div className="rounded-xl border border-foreground/10 bg-secondary-background p-5">
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-wider text-foreground/40">Account list</p>
+            <div className="space-y-1.5">
+              <div className="grid grid-cols-4 text-[9px] font-medium uppercase text-foreground/30">
+                <span className="col-span-2">Company</span>
+                <span>MRR</span>
+                <span className="text-right">Status</span>
+              </div>
+              {tableSample.map((r) => (
+                <div key={r.name} className="grid grid-cols-4 border-t border-foreground/5 py-1.5 text-[10px]">
+                  <span className="col-span-2 font-medium text-foreground/80">{r.name}</span>
+                  <span className="text-foreground/50">{r.mrr}</span>
+                  <span className={`text-right text-[9px] font-medium ${r.status === 'Active' ? 'text-main' : r.status === 'Trial' ? 'text-yellow-400' : 'text-foreground/40'}`}>
+                    {r.status}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Sprint tracker */}
+          <div className="rounded-xl border border-foreground/10 bg-secondary-background p-5">
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-wider text-foreground/40">Sprint progress</p>
+            <div className="space-y-3">
+              {sprintTasks.map((t) => (
+                <div key={t.task}>
+                  <div className="mb-1 flex justify-between text-[10px]">
+                    <span className="text-foreground/70">{t.task}</span>
+                    <span className="text-foreground/40">{t.pct}%</span>
                   </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-lg font-heading">What I led</h3>
-                    <ul className="space-y-2 text-sm sm:text-base">
-                      {project.highlights.map((highlight) => (
-                        <li className="flex items-start gap-2.5" key={highlight}>
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-main" />
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.focusAreas.map((area) => (
-                      <Badge key={area} variant="neutral">
-                        {area}
-                      </Badge>
-                    ))}
+                  <div className="h-1 w-full overflow-hidden rounded-full bg-foreground/10">
+                    <div className="h-full rounded-full bg-main/70" style={{ width: `${t.pct}%` }} />
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* System status */}
+          <div className="rounded-xl border border-foreground/10 bg-secondary-background p-5">
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-wider text-foreground/40">System health</p>
+            <div className="space-y-2.5">
+              {[
+                { name: 'API Gateway', uptime: '99.98%', ok: true },
+                { name: 'Database cluster', uptime: '99.95%', ok: true },
+                { name: 'Worker queue', uptime: '99.91%', ok: true },
+                { name: 'File storage', uptime: '100%', ok: true },
+                { name: 'Email service', uptime: '97.8%', ok: false },
+              ].map((s) => (
+                <div key={s.name} className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className={`h-1.5 w-1.5 rounded-full ${s.ok ? 'bg-main' : 'bg-yellow-400'}`} />
+                    <span className="text-[11px] text-foreground/70">{s.name}</span>
+                  </div>
+                  <span className="text-[10px] text-foreground/40">{s.uptime}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Form / settings panel */}
+          <div className="rounded-xl border border-foreground/10 bg-secondary-background p-5">
+            <p className="mb-3 text-[10px] font-medium uppercase tracking-wider text-foreground/40">User settings</p>
+            <div className="space-y-3">
+              {[
+                { label: 'Display name', value: 'Alex Mercer' },
+                { label: 'Email', value: 'alex@company.com' },
+                { label: 'Role', value: 'Admin' },
+              ].map((f) => (
+                <div key={f.label}>
+                  <p className="mb-1 text-[9px] text-foreground/40">{f.label}</p>
+                  <div className="rounded-lg border border-foreground/15 bg-background/40 px-3 py-2 text-[11px] text-foreground/70">
+                    {f.value}
+                  </div>
+                </div>
+              ))}
+              <div className="rounded-lg bg-main/15 px-3 py-2 text-center text-[10px] font-medium text-main">
+                Save changes
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Key capabilities ─────────────────────────────────────────────── */}
+      <section className="space-y-8">
+        <div className="space-y-2">
+          <h2 className="font-heading text-3xl sm:text-4xl">What this work demonstrates</h2>
+          <p className="text-sm text-foreground/60 sm:text-base">
+            Consistent patterns across every project.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {capabilities.map((c, i) => (
+            <div
+              key={c.title}
+              className="group flex items-start gap-4 rounded-xl border border-foreground/10 bg-secondary-background p-6 transition-all hover:-translate-y-0.5 hover:border-main/30 hover:shadow-shadow"
+            >
+              <span className="font-heading text-2xl font-bold text-main/30 transition-colors group-hover:text-main">
+                0{i + 1}
+              </span>
+              <div className="space-y-1">
+                <p className="font-heading text-base">{c.title}</p>
+                <p className="text-sm text-foreground/60">{c.description}</p>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="space-y-6">
-        <div className="space-y-2">
-          <h2 className="text-3xl sm:text-4xl">Delivery playbook</h2>
-          <p className="max-w-2xl text-sm text-foreground/70 sm:text-base">
-            A repeatable operating model I use to keep teams aligned and delivery outcomes stable.
-          </p>
-        </div>
-        <div className="grid gap-5 md:grid-cols-3">
-          {deliveryPlaybook.map((step) => (
-            <Card className="bg-secondary-background" key={step.title}>
-              <CardHeader>
-                <CardTitle className="text-xl">{step.title}</CardTitle>
-                <CardDescription>{step.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
+      {/* ── How this helps you ───────────────────────────────────────────── */}
+      <section className="rounded-2xl border border-foreground/10 bg-secondary-background p-8 sm:p-10">
+        <p className="mb-3 text-sm font-medium text-main">How this translates to your project</p>
+        <p className="max-w-2xl text-base text-foreground/80 sm:text-lg">
+          I can help you design and build systems like these — whether it&apos;s a SaaS platform,
+          internal tool, or data-heavy dashboard. I work best on projects where there&apos;s a real
+          product to build and real users who depend on it.
+        </p>
+        <Link
+          href="/contact"
+          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-main transition-opacity hover:opacity-75"
+        >
+          See how to get in touch →
+        </Link>
       </section>
+
+      {/* ── Final CTA ────────────────────────────────────────────────────── */}
+      <section className="rounded-2xl bg-main p-10 text-center sm:p-16">
+        <p className="mb-3 text-sm font-medium text-main-foreground/70">Ready to build?</p>
+        <h2 className="mb-4 font-heading text-3xl text-main-foreground sm:text-4xl">
+          Need something like this built?
+        </h2>
+        <p className="mx-auto mb-8 max-w-md text-sm text-main-foreground/70 sm:text-base">
+          Tell me what you&apos;re building. I&apos;ll tell you clearly whether I can help and what that looks like.
+        </p>
+        <a
+          href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something"
+          className="inline-flex items-center gap-2 rounded-md border-2 border-main-foreground/20 bg-main-foreground/10 px-8 py-3 text-sm font-medium text-main-foreground transition-all hover:bg-main-foreground/20"
+        >
+          Start a Conversation
+          <ArrowRight className="h-4 w-4" />
+        </a>
+      </section>
+
     </div>
   )
 }
