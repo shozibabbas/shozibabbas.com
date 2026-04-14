@@ -343,7 +343,9 @@ export default function About() {
           Let&apos;s talk through what you need and whether I&apos;m the right fit.
         </p>
         <a
-          href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something"
+          href="https://calendly.com/shozibabbas/30min"
+          rel="noreferrer"
+          target="_blank"
           className="inline-flex items-center gap-2 rounded-md border-2 border-border bg-secondary-background px-6 py-3 text-sm font-medium text-foreground shadow-shadow transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
         >
           Start a Conversation

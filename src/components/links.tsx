@@ -24,8 +24,8 @@ export default function Links() {
     },
     {
       icon: Mail,
-      href: 'mailto:shozibabbas@gmail.com',
-      label: 'Email',
+      href: 'https://calendly.com/shozibabbas/30min',
+      label: 'Book a Call',
     },
     {
       icon: Phone,

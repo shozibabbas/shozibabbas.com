@@ -9,7 +9,7 @@ export default function FinalCTA() {
       </h2>
       <p className="mb-8 text-base text-main-foreground/80">Let&apos;s turn it into a working product.</p>
       <Button asChild size="lg" variant="neutral">
-        <a href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something">
+        <a href="https://calendly.com/shozibabbas/30min" rel="noreferrer" target="_blank">
           Book a 15-min Call
           <ArrowRight className="h-4 w-4" />
         </a>

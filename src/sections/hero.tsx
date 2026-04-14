@@ -108,7 +108,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-3">
             <Button asChild size="lg">
-              <a href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something">
+              <a href="https://calendly.com/shozibabbas/30min" rel="noreferrer" target="_blank">
                 Book a Call
                 <ArrowRight className="h-4 w-4" />
               </a>

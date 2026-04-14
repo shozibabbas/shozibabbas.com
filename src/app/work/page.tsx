@@ -7,32 +7,6 @@ import CaseStudyCard from '@/components/CaseStudyCard'
 
 const caseStudies = [
   {
-    id: 'hudlink',
-    label: 'HudLink',
-    tagline: 'AI-powered due diligence platform',
-    domain: 'AI · Finance',
-    period: 'Contract Position · Oct 2020 – Present',
-    problem:
-      'Investment and BD teams were spending days manually reviewing financial data, company filings, and operational records. The process was slow, inconsistent, and impossible to scale.',
-    solution:
-      'Designed and built a platform that ingests large volumes of structured and unstructured financial data, processes it through AI-driven analysis pipelines, and surfaces insights through structured workflows and dashboards — so teams can evaluate opportunities in hours, not days.',
-    built: [
-      'Data ingestion and processing pipelines for financial and operational datasets',
-      'AI-driven analysis workflows with structured output and scoring',
-      'Dashboard interfaces with filtering, comparison views, and report generation',
-      'Microservice architecture to handle parallel processing at scale',
-      'Performance-optimized frontend for large dataset rendering',
-    ],
-    tech: ['React', 'Node.js', 'NestJS', 'AWS', 'PostgreSQL', 'MongoDB'],
-    outcomes: [
-      'Analysis workflows reduced from days to hours',
-      'System handles concurrent evaluation requests without degradation',
-      'Architecture scales horizontally as data volume grows',
-    ],
-    screenshot: '/work/hudlink-cover.png',
-    ui: 'hudlink',
-  },
-  {
     id: 'aila',
     label: 'AILA Platform',
     tagline: 'Multi-platform education system',
@@ -310,7 +284,9 @@ export default function Work() {
           Each project below is a system I designed and built end-to-end.
         </p>
         <a
-          href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something"
+          href="https://calendly.com/shozibabbas/30min"
+          rel="noreferrer"
+          target="_blank"
           className="inline-flex items-center gap-2 rounded-md border-2 border-border bg-main px-6 py-3 text-sm font-medium text-main-foreground shadow-shadow transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none"
         >
           Start a Conversation
@@ -399,6 +375,232 @@ export default function Work() {
             </ul>
           }
           image="/images/vertboard.png"
+        />
+
+        <CaseStudyCard
+          title="HudLink — AI-Powered Due Diligence Intelligence Platform"
+          subtitle="Private AI infrastructure for transforming financial data into decision-ready intelligence"
+          problem={
+            <>
+              <p>Due diligence in private markets is:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Manual and time-consuming</li>
+                <li className="list-disc">Dependent on fragmented data rooms</li>
+                <li className="list-disc">Prone to human error</li>
+                <li className="list-disc">Limited by generic tools that lack domain intelligence</li>
+              </ul>
+              <p>At the same time, using public LLMs introduces serious risks:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Data leakage</li>
+                <li className="list-disc">Lack of control</li>
+                <li className="list-disc">No ownership of intelligence</li>
+              </ul>
+            </>
+          }
+          solution={
+            <>
+              <p>Built a private AI-powered platform that transforms raw data into structured, decision-ready intelligence.</p>
+              <p>The system combines:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">AI-driven document understanding</li>
+                <li className="list-disc">Structured workflows</li>
+                <li className="list-disc">Proprietary intelligence models</li>
+              </ul>
+              <p>All running in a controlled environment where:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">No data is exposed to public LLMs</li>
+                <li className="list-disc">Firms retain full ownership of their data and models</li>
+              </ul>
+            </>
+          }
+          build={
+            <ul className="space-y-2 pl-5">
+              <li className="list-disc">End-to-end due diligence platform</li>
+              <li className="list-disc">Data room ingestion and structuring system</li>
+              <li className="list-disc">AI-powered analysis pipelines</li>
+              <li className="list-disc">Risk detection and reporting engine</li>
+              <li className="list-disc">Custom workflow systems for deal teams</li>
+              <li className="list-disc">Scalable backend architecture for high-volume data</li>
+            </ul>
+          }
+          highlightTitle="AI & Infrastructure"
+          highlightContent={
+            <>
+              <p>Built around Small Language Models (SLMs) for:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Better control</li>
+                <li className="list-disc">Lower latency</li>
+                <li className="list-disc">Domain-specific intelligence</li>
+              </ul>
+              <p>Designed with data sovereignty as a core principle:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Zero reliance on public LLM APIs</li>
+                <li className="list-disc">Fully controlled AI environment</li>
+              </ul>
+              <p>Integrated private model training pipelines:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Models adapt to firm-specific workflows</li>
+                <li className="list-disc">Compounding intelligence over time</li>
+              </ul>
+              <p>Developed intelligence infrastructure layer (Compact Machines):</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Foundation for building custom AI workflows</li>
+                <li className="list-disc">Extensible system beyond a single application</li>
+              </ul>
+            </>
+          }
+          tech={
+            <>
+              <div>
+                <p className="font-medium text-foreground/80">Frontend:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">React / Next.js</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Backend:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">Node.js / NestJS</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">AI Layer:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">Small Language Models (SLMs)</li>
+                  <li className="list-disc">Custom AI pipelines</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Infrastructure:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">Cloud + private compute environments</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Database:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">Scalable data systems</li>
+                </ul>
+              </div>
+            </>
+          }
+          outcome={
+            <ul className="space-y-2 pl-5">
+              <li className="list-disc">Eliminated weeks of manual due diligence work</li>
+              <li className="list-disc">Enabled faster, more reliable decision-making</li>
+              <li className="list-disc">Maintained full data privacy and control</li>
+              <li className="list-disc">Created a scalable intelligence system for private markets</li>
+            </ul>
+          }
+          image="/images/hudlink.png"
+          imagePosition="left"
+          imageSize="large"
+        />
+
+        <CaseStudyCard
+          title="BabyDay — Smart Baby Care & Health Tracking Platform"
+          subtitle="Mobile parenting companion that delivers trusted baby care guidance, practical tools, and doctor support in one app"
+          problem={
+            <>
+              <p>Parents struggle to:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Track feeding, sleep, diaper changes, and symptom history consistently on mobile</li>
+                <li className="list-disc">Get trusted, contextual guidance without jumping across fragmented apps and blogs</li>
+                <li className="list-disc">Reach pediatric doctors quickly when they need support on urgent concerns</li>
+                <li className="list-disc">Manage routines, medication, and appointment reminders without missing critical events</li>
+              </ul>
+              <p>
+                Most solutions handle only one part of the journey, but parents need one reliable system that combines care tracking, expert guidance, and medical communication.
+              </p>
+            </>
+          }
+          solution={
+            <>
+              <p>Built a mobile-first platform that allows parents to:</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Track baby activity in real time with low-friction logging flows</li>
+                <li className="list-disc">Access trusted baby care guidance tailored to age and development stage</li>
+                <li className="list-disc">Connect with doctors through in-app support flows</li>
+                <li className="list-disc">Receive reminders and actionable care insights generated from activity patterns</li>
+              </ul>
+              <p>
+                The app unifies tracking, guidance, and doctor support into one continuous parenting experience.
+              </p>
+            </>
+          }
+          build={
+            <ul className="space-y-2 pl-5">
+              <li className="list-disc">Cross-platform mobile experience for daily baby care workflows</li>
+              <li className="list-disc">Structured activity tracker for feeding, sleep, diaper, and wellness events</li>
+              <li className="list-disc">Guidance modules with medically reviewed tips and contextual recommendations</li>
+              <li className="list-disc">Doctor support and consultation workflows for real-time parent assistance</li>
+              <li className="list-disc">Reminder engine for routines, medication, and appointment adherence</li>
+              <li className="list-disc">Secure identity, subscription, and family profile management</li>
+            </ul>
+          }
+          tech={
+            <>
+              <div>
+                <p className="font-medium text-foreground/80">Frontend:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">React / Next.js</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Backend:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">Node.js</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Database:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">Scalable data layer for activity timelines and health events</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Infrastructure:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">Cloud-based architecture with secure API and notification services</li>
+                </ul>
+              </div>
+            </>
+          }
+          outcome={
+            <ul className="space-y-2 pl-5">
+              <li className="list-disc">Unified mobile companion for day-to-day baby care management</li>
+              <li className="list-disc">Higher parent confidence through trusted guidance and clearer activity visibility</li>
+              <li className="list-disc">Fast doctor support channel embedded directly in the app journey</li>
+              <li className="list-disc">Scalable consumer health-tech foundation ready for user growth</li>
+            </ul>
+          }
+          image="/images/babyday/dark-1.jpeg"
+          imageGallery={[
+            {
+              label: 'Dark mode screens',
+              images: [
+                '/images/babyday/dark-1.jpeg',
+                '/images/babyday/dark-2.jpeg',
+                '/images/babyday/dark-3.jpeg',
+                '/images/babyday/dark-4.jpeg',
+                '/images/babyday/dark-5.jpeg',
+                '/images/babyday/dark-6.jpeg',
+              ],
+            },
+            {
+              label: 'Light mode screens',
+              images: [
+                '/images/babyday/light/light-1.jpeg',
+                '/images/babyday/light/light-2.jpeg',
+                '/images/babyday/light/light-3.jpeg',
+                '/images/babyday/light/light-4.jpeg',
+                '/images/babyday/light/light-5.jpeg',
+                '/images/babyday/light/light-6.jpeg',
+              ],
+            },
+          ]}
+          imagePosition="right"
+          imageSize="large"
         />
 
         {caseStudies.map((cs, idx) => (
@@ -667,7 +869,9 @@ export default function Work() {
           Tell me what you&apos;re building. I&apos;ll tell you clearly whether I can help and what that looks like.
         </p>
         <a
-          href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something"
+          href="https://calendly.com/shozibabbas/30min"
+          rel="noreferrer"
+          target="_blank"
           className="inline-flex items-center gap-2 rounded-md border-2 border-main-foreground/20 bg-main-foreground/10 px-8 py-3 text-sm font-medium text-main-foreground transition-all hover:bg-main-foreground/20"
         >
           Start a Conversation

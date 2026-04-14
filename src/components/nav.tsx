@@ -93,7 +93,7 @@ export default function Nav() {
             Available for new projects
           </Badge>
           <Button asChild className="hidden md:inline-flex" size="sm">
-            <a href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something">Book a Call</a>
+            <a href="https://calendly.com/shozibabbas/30min" rel="noreferrer" target="_blank">Book a Call</a>
           </Button>
           <ThemeSwitcher className="hidden md:inline-flex" />
 

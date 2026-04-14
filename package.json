@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "screenshot:vertboard": "node scripts/capture-vertboard-screenshot.mjs"
+    "screenshot:vertboard": "node scripts/capture-vertboard-screenshot.mjs",
+    "screenshot:babyday": "node scripts/capture-babyday-screenshot.mjs",
+    "screenshot:hudlink": "node scripts/capture-hudlink-screenshot.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

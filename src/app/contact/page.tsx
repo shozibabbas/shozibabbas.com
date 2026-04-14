@@ -3,12 +3,20 @@ import { ArrowUpRight, FileText, Github, Linkedin, Mail, Phone } from 'lucide-re
 const channels = [
   {
     icon: Mail,
+    label: 'Book a Call',
+    value: 'calendly.com/shozibabbas/30min',
+    href: 'https://calendly.com/shozibabbas/30min',
+    description: 'Best for immediate scheduling, project scoping calls, and kickoff conversations.',
+    cta: 'Schedule now',
+    primary: true,
+  },
+  {
+    icon: Mail,
     label: 'Email',
     value: 'shozibabbas@gmail.com',
     href: 'mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something',
-    description: 'Best for project enquiries, scoping conversations, and detailed questions.',
+    description: 'Best for detailed project context, documents, and technical requirements.',
     cta: 'Send an email',
-    primary: true,
   },
   {
     icon: Linkedin,
@@ -74,10 +82,12 @@ export default function Contact() {
           you clearly whether I can help and what that looks like.
         </p>
         <a
-          href="mailto:shozibabbas@gmail.com?subject=Let%27s%20build%20something"
+          href="https://calendly.com/shozibabbas/30min"
+          rel="noreferrer"
+          target="_blank"
           className="inline-flex items-center gap-2 rounded-md border-2 border-border bg-main px-6 py-3 text-sm font-medium text-main-foreground shadow-shadow transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none"
         >
-          Send an Email
+          Book a Call
           <ArrowUpRight className="h-4 w-4" />
         </a>
       </section>
