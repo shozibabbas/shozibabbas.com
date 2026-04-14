@@ -1,10 +1,10 @@
 import {
-  FileText,
-  Github,
-  Linkedin,
-  Mail,
-  Phone,
-  type LucideIcon,
+    FileText,
+    Github,
+    Linkedin,
+    Mail,
+    Phone,
+    type LucideIcon,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
