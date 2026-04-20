@@ -1,30 +1,109 @@
-<img src="public/preview.png" />
+<p align="center">
+  <img src="public/preview.png" alt="Portfolio homepage preview" width="100%" />
+</p>
 
-# Portfolio
+# Sayyed Shozib Abbas Portfolio
 
-This is an open-source Next.js portfolio project built with Tailwind CSS.
-If you want to use it, fork it, clone it, customize it, and deploy your own version.
+This repository is the source code for my public portfolio at [shozibabbas.com](https://shozibabbas.com).
 
-## Use this repository
+I made it public for two reasons:
 
-You can use this project in two ways:
+1. To showcase the kind of product engineering and UI work I do
+2. To give other developers a real project they can study, reuse, and adapt
 
-1. Fork this repository on GitHub (recommended)
-2. Or clone it directly:
+This is not just a personal site. It is also a practical reference for building a modern portfolio with a bold neobrutalist UI, solid SEO foundations, reusable UI primitives, and clean App Router structure.
 
-```bash
-git clone https://github.com/shozibabbas/shozibabbas.com.git
-cd shozibabbas.com
-```
+## Why this repo exists
 
-## Local setup
+Most portfolio repositories are either too minimal to learn from or too personalized to reuse cleanly.
+
+This one is meant to be useful.
+
+You can use it as:
+
+- A portfolio starter built with Next.js and Tailwind CSS
+- A neobrutalism.dev-inspired design sample
+- A reference for structuring content-heavy App Router sites
+- An example of modern SEO, Open Graph, sitemap, robots, and analytics setup
+- A source of reusable UI patterns for marketing pages and portfolio work
+
+## Screenshots
+
+### Homepage
+
+<p align="center">
+  <img src="public/preview.png" alt="Homepage screenshot" width="100%" />
+</p>
+
+## Design direction
+
+The visual system is based on the [neobrutalism.dev](https://neobrutalism.dev/) style and adapted into a more polished, modern portfolio UI.
+
+It uses:
+
+- Strong black borders
+- Hard offset shadows
+- Compact rounded corners
+- High-contrast surfaces
+- Tactile hover states and motion
+- Light and dark theme support
+
+The goal was not to make a generic polished SaaS landing page. The goal was to make something with stronger visual identity while still feeling usable, modern, and production-ready.
+
+If you want to understand the design system in detail, see [UI_STYLEGUIDE.md](UI_STYLEGUIDE.md).
+
+## Tech stack
+
+- Next.js 16 with App Router
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Radix UI primitives
+- next-themes for theme switching
+- Google Analytics 4
+- Static SEO assets including sitemap, robots, and Open Graph image
+
+## What is worth studying here
+
+If you are reading this repo to learn how it works, these are the most useful parts:
+
+- `src/app` for routing, page-level metadata, sitemap, robots, and layout structure
+- `src/sections` for homepage composition and marketing-style sections
+- `src/components/ui` for reusable neobrutalist UI primitives
+- `src/components` for app-specific pieces like navigation, links, analytics, and case study presentation
+- `src/data` for structured content used across the site
+- `src/lib/metadata.ts` for shared SEO/Open Graph metadata logic
+- `public` for screenshots, CV, and social preview assets
+
+This repo is intentionally simple to navigate. The content layer and UI layer are separated cleanly enough that you can either study the architecture or replace the content with your own.
+
+## Reusing this repository
+
+You are free to fork this repository, study it, and adapt it to your own needs, subject to the repository license.
+
+Good reuse paths:
+
+- Replace the portfolio content with your own and keep the structure
+- Use the UI system as a starting point for a neobrutalist portfolio
+- Borrow the SEO, metadata, sitemap, Open Graph, and analytics setup
+- Reuse the case study presentation approach for product or agency websites
+
+If you fork this project, the main places you will likely want to update first are:
+
+- `src/app/layout.tsx` for global metadata
+- `src/app/page.tsx`, `src/app/about/page.tsx`, `src/app/work/page.tsx`, `src/app/contact/page.tsx` for page content
+- `src/data/*` for experience, education, skills, and projects
+- `src/components/links.tsx` and `src/components/nav.tsx` for contact and navigation
+- `public` for your screenshots, resume, favicon, and Open Graph image
+
+## Running locally
 
 ### Prerequisites
 
 - Node.js 20+
 - npm or pnpm
 
-### Install dependencies
+### Install
 
 Using npm:
 
@@ -35,10 +114,10 @@ npm install
 Using pnpm:
 
 ```bash
-pnpm i
+pnpm install
 ```
 
-### Run the app locally
+### Start development server
 
 Using npm:
 
@@ -49,83 +128,83 @@ npm run dev
 Using pnpm:
 
 ```bash
-pnpm run dev
+pnpm dev
 ```
 
-Then open http://localhost:3000.
+Then open `http://localhost:3000`.
+
+### Production build
+
+```bash
+npm run build
+```
 
 ## Available scripts
 
-Using npm:
+- `npm run dev` starts the local development server
+- `npm run build` creates the production build
+- `npm run start` runs the production app
+- `npm run lint` runs linting
+- `npm run screenshot:vertboard` captures the VertBoard screenshot
+- `npm run screenshot:babyday` captures the BabyDay screenshot
+- `npm run screenshot:hudlink` captures the HudLink screenshot
 
-- `npm run dev` - start development server
-- `npm run build` - create production build
-- `npm run start` - run production server
-- `npm run lint` - run linter
+## SEO and social sharing
 
-Using pnpm, replace `npm run` with `pnpm`.
+This repository includes a complete baseline SEO setup:
 
-## Project customization
+- Global metadata in the root layout
+- Per-page metadata for homepage, about, work, and contact pages
+- Open Graph and Twitter card tags
+- Custom Open Graph thumbnail in `public/og-thumbnail.png`
+- `sitemap.xml` generation
+- `robots.txt` generation
+- Google Analytics 4 integration gated to production mode
 
-- Inside `layout.tsx` update the metadata
-- Inside `page.tsx` update the content
-- Update the `favicon.ico`
+If you reuse this repo, do not forget to update:
 
-### Content configuration
+- Site URL
+- Metadata titles and descriptions
+- Open Graph image
+- Analytics measurement ID
 
-#### Links on the home page
+## Neobrutalism sample value
 
-To update the links on the home page go to `src/components/links.tsx` and inside `links` array add or remove objects. Each object has 2 properties, `icon` and `href`. `href` is self-explanatory, and inside `icon` you will put an icon imported from `@icons-pack/react-simple-icons`. Visit [simpleicons.org](https://simpleicons.org/) to see all icons. Import them by adding `Si` prefix to their name.
+If your main interest is the design system, this repository is useful because it shows neobrutalism in a real site rather than a toy component demo.
 
-#### Updating the rest of the content
+It includes:
 
-Inside the `src/data` folder you have the rest of the content you can edit.
+- Reusable UI primitives built on Radix
+- Consistent token-driven styling in `src/app/globals.css`
+- Practical application of neobrutalist patterns in navigation, cards, CTAs, tabs, dialogs, and case study layouts
+- A balance between expressive visuals and production-friendly structure
 
-#### Updating the `previewImage` in `projects.ts`
+That makes it a good reference if you want to build:
 
-Make sure to put `/` + image file name that exists inside the `public` folder. For example, if you have `my-project.png` inside `public`, you should write:
-
-```ts
-previewImage: '/my-project.png'
-```
-
-##### Image aspect ratio
-
-Inside `src/app/work/page.tsx`, `previewImage` is wrapped inside the `AspectRatio` component. Change the `ratio` prop so it suits your needs.
-
-#### Updating skills
-
-Inside `skills.ts`, within the `SKILLS` array, each object represents a skill field (frontend, backend, DevOps, design, and so on). Each object has:
-
-- `field`: field name
-- `skills`: array of items
-- each item has `skill` (tooltip text) and `icon` (displayed icon)
-
-Update them the same way you update links on the home page.
-
-### Styling
-
-To change the styling, visit [styling docs](https://neobrutalism.dev/styling), and copy the desired styles into your CSS as shown there.
+- A portfolio
+- A founder site
+- A small product marketing site
+- A component system inspired by neobrutalism.dev but adapted for modern usage
 
 ## Deployment
 
-You can deploy this project on Vercel, Netlify, or any Node-compatible hosting platform.
+This project is ready to deploy on Vercel and also works with other Node-compatible hosting platforms.
 
 For Vercel:
 
-1. Import your forked repo
-2. Use default Next.js settings
-3. Deploy
+1. Import the repository
+2. Keep the default Next.js settings
+3. Add any required environment variables
+4. Deploy
 
-## Contributing
+## A note on attribution and reuse
 
-Contributions are welcome.
+If you reuse this code, customize it properly.
 
-1. Fork the repo
-2. Create a branch
-3. Make your changes
-4. Open a pull request
+Do not just change the name and ship it unchanged. Replace the content, screenshots, metadata, links, CV, and branding so it actually reflects your work.
+
+The repository is public because I want it to be useful, not because I want cloned portfolios floating around unchanged.
 
 ## License
 
-This repository is open source under the [LICENSE](LICENSE) file.
+This repository is available under the terms in [LICENSE](LICENSE).
