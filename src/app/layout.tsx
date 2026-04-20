@@ -6,6 +6,7 @@ import {
   defaultDescription,
   defaultOgImage,
   defaultOgImageAlt,
+  defaultOgTitle,
   defaultTitle,
   siteName,
   siteUrl,
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: defaultTitle,
+    title: defaultOgTitle,
     description: defaultDescription,
     url: siteUrl,
     siteName,
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: defaultTitle,
+    title: defaultOgTitle,
     description: defaultDescription,
     images: [defaultOgImage],
   },

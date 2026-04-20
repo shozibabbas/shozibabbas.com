@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const siteUrl = 'https://shozibabbas.com'
 export const siteName = 'Sayyed Shozib Abbas'
 export const defaultTitle = 'Sayyed Shozib Abbas — Product Engineer'
+export const defaultOgTitle = 'Sayyed Shozib Abbas — Product Engineer for SaaS & AI'
 export const defaultDescription =
   'I build scalable web apps, dashboards, and SaaS platforms. Helping startups and businesses turn ideas into fast, reliable, and scalable digital products.'
 export const defaultOgImage = '/og-thumbnail.png'
@@ -21,10 +22,12 @@ export function createPageMetadata({
   path = '/',
 }: PageMetadataInput): Metadata {
   const absoluteUrl = path === '/' ? siteUrl : `${siteUrl}${path}`
-  const openGraphTitle = title ? `${title} | ${siteName}` : defaultTitle
+  const openGraphTitle = title
+    ? `${title} | ${siteName} — Product Engineer`
+    : defaultOgTitle
 
   return {
-    title,
+    ...(title ? { title } : {}),
     description,
     alternates: {
       canonical: path,
