@@ -1,4 +1,12 @@
 import { ArrowUpRight, FileText, Github, Linkedin, Mail, Phone } from 'lucide-react'
+import { createPageMetadata } from '@/lib/metadata'
+
+export const metadata = createPageMetadata({
+  title: 'Contact',
+  description:
+    'Book a call or contact Sayyed Shozib Abbas for SaaS platforms, internal tools, dashboards, AI systems, and end-to-end product engineering work.',
+  path: '/contact',
+})
 
 const channels = [
   {

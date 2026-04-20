@@ -1,6 +1,6 @@
-import Image from 'next/image'
 import type { ReactNode } from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import WorkImageLightbox from '@/components/work-image-lightbox'
 
 type CaseStudyCardProps = {
   title: string
@@ -66,19 +66,16 @@ export default function CaseStudyCard({
                   <TabsContent key={group.label} value={group.label} className="mt-0 space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       {group.images.map((src, idx) => (
-                        <div
+                        <WorkImageLightbox
                           key={`${group.label}-${idx}`}
-                          className="group overflow-hidden rounded-lg border border-foreground/10 bg-secondary-background"
-                        >
-                          <Image
-                            src={src}
-                            alt={`${title} ${group.label} screen ${idx + 1}`}
-                            width={480}
-                            height={960}
-                            className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                            loading="lazy"
-                          />
-                        </div>
+                          src={src}
+                          alt={`${title} ${group.label} screen ${idx + 1}`}
+                          width={480}
+                          height={960}
+                          loading="lazy"
+                          previewHeightClass="h-40 sm:h-44"
+                          className="rounded-lg bg-secondary-background shadow-none"
+                        />
                       ))}
                     </div>
                   </TabsContent>
@@ -86,16 +83,14 @@ export default function CaseStudyCard({
               </Tabs>
             </div>
           ) : (
-            <div className="group overflow-hidden rounded-xl border border-foreground/10 bg-background shadow-xl">
-              <Image
-                src={image}
-                alt={`${title} screenshot`}
-                width={1440}
-                height={900}
-                className="h-auto w-full transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                priority
-              />
-            </div>
+            <WorkImageLightbox
+              src={image}
+              alt={`${title} screenshot`}
+              width={1440}
+              height={900}
+              priority
+              previewHeightClass="h-56 sm:h-64"
+            />
           )}
         </div>
 

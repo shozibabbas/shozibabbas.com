@@ -1,4 +1,12 @@
 import { ArrowRight, CheckCircle, Code2, Database, Globe, Layers, Server, Terminal, Zap } from 'lucide-react'
+import { createPageMetadata } from '@/lib/metadata'
+
+export const metadata = createPageMetadata({
+  title: 'About',
+  description:
+    'Learn how Sayyed Shozib Abbas approaches product engineering, system design, and full-stack delivery across AI, healthcare, and education products.',
+  path: '/about',
+})
 
 const approach = [
   {

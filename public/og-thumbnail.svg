@@ -1,0 +1,98 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F7F3EA"/>
+  <rect x="32" y="32" width="1136" height="566" rx="28" fill="#FFFDF8" stroke="#000000" stroke-width="4"/>
+  <g opacity="0.11">
+    <path d="M64 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M96 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M128 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M160 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M192 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M224 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M256 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M288 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M320 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M352 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M384 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M416 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M448 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M480 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M512 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M544 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M576 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M608 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M640 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M672 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M704 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M736 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M768 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M800 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M832 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M864 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M896 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M928 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M960 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M992 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M1024 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M1056 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M1088 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M1120 32V598" stroke="#000000" stroke-width="1"/>
+    <path d="M32 64H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 96H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 128H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 160H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 192H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 224H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 256H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 288H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 320H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 352H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 384H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 416H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 448H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 480H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 512H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 544H1168" stroke="#000000" stroke-width="1"/>
+    <path d="M32 576H1168" stroke="#000000" stroke-width="1"/>
+  </g>
+  <circle cx="162" cy="136" r="84" fill="#66DFC8" opacity="0.3"/>
+  <circle cx="1040" cy="102" r="102" fill="#DDFBF4"/>
+  <circle cx="1084" cy="522" r="118" fill="#66DFC8" opacity="0.16"/>
+
+  <rect x="78" y="92" width="494" height="420" rx="24" fill="#FFFDF8" stroke="#000000" stroke-width="4"/>
+  <rect x="106" y="120" width="196" height="34" rx="17" fill="#66DFC8" stroke="#000000" stroke-width="3"/>
+  <text x="124" y="142" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="2.2">PRODUCT ENGINEER</text>
+  <text x="106" y="210" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700">Sayyed Shozib</text>
+  <text x="106" y="272" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700">Abbas</text>
+  <text x="106" y="338" fill="#2F2F2F" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600">Scalable SaaS platforms, AI systems,</text>
+  <text x="106" y="371" fill="#2F2F2F" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600">dashboards, and production-ready</text>
+  <text x="106" y="404" fill="#2F2F2F" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600">digital products.</text>
+  <rect x="106" y="438" width="248" height="48" rx="14" fill="#66DFC8" stroke="#000000" stroke-width="4"/>
+  <text x="135" y="469" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">shozibabbas.com</text>
+
+  <rect x="612" y="116" width="514" height="380" rx="24" fill="#FFFDF8" stroke="#000000" stroke-width="4"/>
+  <rect x="612" y="116" width="514" height="50" rx="24" fill="#F2EFE7" stroke="#000000" stroke-width="4"/>
+  <circle cx="648" cy="141" r="8" fill="#000000"/>
+  <circle cx="676" cy="141" r="8" fill="#66DFC8"/>
+  <circle cx="704" cy="141" r="8" fill="#A8A8A8"/>
+
+  <rect x="640" y="198" width="156" height="104" rx="18" fill="#66DFC8" stroke="#000000" stroke-width="4"/>
+  <text x="665" y="236" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">Systems</text>
+  <text x="665" y="258" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">Architecture</text>
+
+  <rect x="822" y="198" width="122" height="104" rx="18" fill="#FFFDF8" stroke="#000000" stroke-width="4"/>
+  <text x="846" y="240" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">Dashboards</text>
+  <text x="859" y="260" fill="#444444" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600">real-time</text>
+
+  <rect x="970" y="198" width="128" height="104" rx="18" fill="#FFFDF8" stroke="#000000" stroke-width="4"/>
+  <text x="991" y="240" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700">AI workflows</text>
+  <text x="1008" y="260" fill="#444444" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600">private</text>
+
+  <rect x="640" y="332" width="430" height="110" rx="18" fill="#FFFDF8" stroke="#000000" stroke-width="4"/>
+  <path d="M674 404L730 378L786 392L850 364L912 382L974 348L1032 362" stroke="#66DFC8" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.42"/>
+  <path d="M674 404L730 378L786 392L850 364L912 382L974 348L1032 362" stroke="#000000" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="640" y="458" width="182" height="54" rx="14" fill="#000000"/>
+  <text x="673" y="492" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Build fast</text>
+  <rect x="844" y="458" width="220" height="54" rx="14" fill="#66DFC8" stroke="#000000" stroke-width="4"/>
+  <text x="879" y="492" fill="#000000" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Scale cleanly</text>
+</svg>

@@ -1,3 +1,4 @@
+import { createPageMetadata } from '@/lib/metadata'
 import AboutPreview from '@/sections/about-preview'
 import FeaturedWork from '@/sections/featured-work'
 import FinalCTA from '@/sections/final-cta'
@@ -6,6 +7,12 @@ import HowIWork from '@/sections/how-i-work'
 import Services from '@/sections/services'
 import TrustStrip from '@/sections/trust-strip'
 import UIPreview from '@/sections/ui-preview'
+
+export const metadata = createPageMetadata({
+  description:
+    'Portfolio of Sayyed Shozib Abbas, a product engineer building scalable SaaS platforms, AI systems, healthcare software, and high-performance dashboards.',
+  path: '/',
+})
 
 export default function Home() {
   return (

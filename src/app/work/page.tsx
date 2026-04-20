@@ -1,7 +1,15 @@
 import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 import CaseStudyCard from '@/components/CaseStudyCard'
+import WorkImageLightbox from '@/components/work-image-lightbox'
+import { createPageMetadata } from '@/lib/metadata'
+
+export const metadata = createPageMetadata({
+  title: 'Work',
+  description:
+    'Selected work by Sayyed Shozib Abbas across digital signage, AI due diligence, healthcare systems, education platforms, and full-stack product engineering.',
+  path: '/work',
+})
 
 // ─── Case study data ──────────────────────────────────────────────────────────
 
@@ -661,16 +669,14 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="relative overflow-hidden rounded-xl border border-foreground/10">
-                <Image
-                  src={cs.screenshot}
-                  alt={`${cs.label} screenshot`}
-                  width={800}
-                  height={500}
-                  className="h-full w-full object-cover object-top"
-                  loading="lazy"
-                />
-              </div>
+              <WorkImageLightbox
+                src={cs.screenshot}
+                alt={`${cs.label} screenshot`}
+                width={800}
+                height={500}
+                loading="lazy"
+                previewHeightClass="h-56 sm:h-64"
+              />
             </div>
 
             {/* Outcomes */}
