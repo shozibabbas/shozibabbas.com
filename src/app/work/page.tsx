@@ -386,6 +386,87 @@ export default function Work() {
         />
 
         <CaseStudyCard
+          title="YouthClub Academy — Multi-Platform LMS Ecosystem"
+          subtitle="End-to-end learning platform with role-based admin operations, scalable backend services, and cross-platform student experiences across web and mobile"
+          problem={
+            <>
+              <p>YouthClub Academy needed a unified system to manage the full student lifecycle from discovery to learning, assessment, payments, and support.</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">Fragmented experiences across admin, backend, and learner applications</li>
+                <li className="list-disc">Secure delivery requirements for videos, files, external links, and assessments</li>
+                <li className="list-disc">Role-specific workflows for Super Admin, Admin, Tutor, and Student</li>
+                <li className="list-disc">Subscription and payment handling with both gateway and manual review paths</li>
+                <li className="list-disc">Need for real-time visibility into enrollments, revenue, assessments, and support load</li>
+              </ul>
+            </>
+          }
+          solution={
+            <>
+              <p>Built a multi-repo LMS ecosystem composed of backend services, admin web operations, student mobile experiences, and browser-based learner access.</p>
+              <ul className="space-y-2 pl-5">
+                <li className="list-disc">NestJS + Prisma + PostgreSQL backend with modular domains</li>
+                <li className="list-disc">React + TypeScript + Vite admin app for operations and content workflows</li>
+                <li className="list-disc">Expo React Native student app with persistent state and rich media support</li>
+                <li className="list-disc">Cloud file delivery via AWS S3 and CloudFront signed access</li>
+              </ul>
+            </>
+          }
+          build={
+            <ul className="space-y-2 pl-5">
+              <li className="list-disc">Modular LMS backend covering auth, course, student, payment, subscription, support, and dashboards</li>
+              <li className="list-disc">JWT auth, Google OAuth, forgot/reset flows, and secure signup + payment-proof path</li>
+              <li className="list-disc">Course-topic-material hierarchy with material-level progress and assessment pipelines</li>
+              <li className="list-disc">Admin dashboard for revenue, enrollment trends, subscription visibility, and ticket distribution</li>
+              <li className="list-disc">Payment and support operations including reminders, triage workflows, and manual activation paths</li>
+              <li className="list-disc">Student mobile + web parity for enrollment, learning progress, messaging, and payment actions</li>
+              <li className="list-disc">Event-driven workflows, scheduled subscription hygiene jobs, and temp-file cleanup automation</li>
+            </ul>
+          }
+          tech={
+            <>
+              <div>
+                <p className="font-medium text-foreground/80">Admin / Student Web:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">React 19, TypeScript, Vite, Tailwind CSS, Radix UI</li>
+                  <li className="list-disc">Redux Toolkit + RTK Query, React Router</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Mobile:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">React Native (Expo), Expo Router, AsyncStorage</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Backend:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">NestJS, Prisma ORM, PostgreSQL, JWT, Joi config validation</li>
+                </ul>
+              </div>
+              <div>
+                <p className="font-medium text-foreground/80">Infrastructure & Integrations:</p>
+                <ul className="pl-5">
+                  <li className="list-disc">AWS S3, CloudFront, Docker Compose, SMTP email</li>
+                  <li className="list-disc">PayFast payment gateway, Google OAuth</li>
+                </ul>
+              </div>
+            </>
+          }
+          outcome={
+            <ul className="space-y-2 pl-5">
+              <li className="list-disc">Delivered a production-ready LMS backbone across admin, backend, and student channels</li>
+              <li className="list-disc">Enabled structured content delivery with robust progress tracking and assessment workflows</li>
+              <li className="list-disc">Established monetization and subscription workflows with admin oversight and auditability</li>
+              <li className="list-disc">Improved operational decision-making through a consolidated role-aware analytics dashboard</li>
+              <li className="list-disc">Created a scalable foundation for future expansion of courses, instructors, and learners</li>
+            </ul>
+          }
+          image="/images/yclms.png"
+          imagePosition="left"
+          imageSize="large"
+        />
+
+        <CaseStudyCard
           title="HudLink — AI-Powered Due Diligence Intelligence Platform"
           subtitle="Private AI infrastructure for transforming financial data into decision-ready intelligence"
           problem={
